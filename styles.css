@@ -1,0 +1,26 @@
+li {
+   list-style-position: inside;
+}
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+.main_container {
+  max-width: 900px;
+  margin: 0 auto;
+  border: 2px solid blue;
+}
+.main_tagline {
+  margin-top: 0;
+  padding-top: 0;
+}
+.main_title {
+  margin: 0;
+  padding: 0;
+}
+
+.main_footer {
+  text-align: center;
+  font-style: italic;
+}
