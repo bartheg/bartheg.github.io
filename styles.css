@@ -4,6 +4,9 @@
   /*border: 1px dashed lightgrey;
   border-radius: 10px;*/
 }
+body {
+  background-color: #050500;
+}
 li {
    list-style-position: inside;
 }
@@ -32,6 +35,7 @@ pre {
   padding: 2px 4px;
   border: 2px solid blue;
   border-radius: 0;
+  background-color: #ffffee;
 
 }
 .main_tagline {
@@ -56,7 +60,6 @@ pre {
   border: 1px solid orange;
   border-radius: 0;
 }
-
 .main_menu_item {
   min-width: 150px;
   max-width: 100px;
@@ -70,12 +73,18 @@ pre {
 .main_menu_item > a {
   display: block;
 }
+.main_menu_item > a.current, .main_menu_item > a:active {
+  background-color: darkred;
+  color: white;
+  font-weight: bold;
+}
 .main_footer {
   text-align: center;
   font-style: italic;
   border: 1px solid red;
   border-radius: 0;
   font-family: 'Ubuntu', sans-serif;
-
-
+}
+main > header {
+  text-align: center;
 }
