@@ -4,6 +4,12 @@
   /*border: 1px dashed lightgrey;
   border-radius: 10px;*/
 }
+main > header > h1 {
+  margin-bottom: 25px;
+}
+.main_container > footer {
+  margin-top: 25px;
+}
 body {
   background-color: #050500;
 }
@@ -17,17 +23,49 @@ a {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Ubuntu', sans-serif;
 }
+figcaption {
+  font-size: small;
+  font-style: italic;
+}
 p {
   font-family: 'Noticia Text', serif;
   margin-top: 6px;
   margin-bottom: 6px;
 }
-pre {
+.terminal {
   border: 2px solid grey;
   padding: 7px 7px;
   margin: 5px;
   display: inline-block;
-  background-color: #dddddd;
+  background-color: #222222;
+  color: #11aa11;
+  font-weight: bold;
+}
+.terminal_inline {
+  /*border: 2px solid grey;*/
+  padding: 3px 3px;
+  /*margin: 5px;*/
+  display: inline;
+  background-color: #222222;
+  color: #dddddd;
+  font-weight: bold;
+}
+.source {
+  border: 5px solid #3c4049;
+  padding: 3px 7px;
+  margin: 5px;
+  display: inline-block;
+  background-color: #282c34;
+  color: #92a5b1;
+}
+.source_inline {
+  /*border: 5px solid #3c4049;*/
+  padding: 3px 3px;
+  /*margin: 5px;*/
+  display: inline;
+  background-color: #282c34;
+  color: #92a5b1;
+  font-weight: bold;
 }
 .main_container {
   max-width: 780px;
@@ -78,6 +116,14 @@ pre {
   color: white;
   font-weight: bold;
 }
+
+.main_menu_item > a.empty {
+  background-color: grey;
+  color: #aaaaaa;
+  pointer-events: none;
+  cursor: default;
+}
+
 .main_footer {
   text-align: center;
   font-style: italic;

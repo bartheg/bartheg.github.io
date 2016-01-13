@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+
+  <title>Rails Noob's Notes</title>
+
+  <meta name="description" content="Notes from rails learning."/>
+  <meta name="keywords" content=""/>
+   <meta name="author" content="Bartłomiej Sielski">
+  <link rel="stylesheet" href="styles.css" type="text/css"/>
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Noticia+Text|Cousine' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+<div class="main_container">
+
+  <header>
+    <h1 class="main_title">Rails Noob's Notes</h1>
+    <p class="main_tagline">Because my memory is good but short.</p>
+  </header>
+
+  <nav class="main_menu">
+    <div class="main_menu_item"><a href="index.html">Home Page</a></div>
+    <div class="main_menu_item"><a href="html.html">HTML</a></div>
+    <div class="main_menu_item"><a class="empty" href="css.html">CSS</a></div>
+    <div class="main_menu_item"><a class="empty" href="rvm.html">RVM</a></div>
+    <div class="main_menu_item"><a class="current" href="rails.html">Rails</a></div>
+    <div class="main_menu_item"><a class="empty" href="ruby.html">Ruby</a></div>
+    <div class="main_menu_item"><a class="empty" href="jquery.html">jQuery</a></div>
+    <div class="main_menu_item"><a class="empty" href="english.html">English</a></div>
+  </nav>
+
+  <main>
+    <header>
+      <h1 class="">Rails</h1>
+    </header>
+
+    <article>
+      <header>
+        <h1 class="">Many to many associations by "has_many through"</h1>
+      </header>
+      <p>
+        My model will be call Node, and I want to connect them with other nodes
+        in a way that is called "directed graph".
+
+      </p>
+
+      <figure>
+        <img alt="Directed graph" width="180" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Directed_acyclic_graph.png"/>
+        <figcaption>An example of directed graph from Wikimedia Commons.</figcaption>
+      </figure>
+
+      <p>
+        Each node can have zero, one or many children, and zero, one or many parents.
+        To do this I need an another model which will represent connections between nodes.
+        I assume that Node model already exists and I will create the NodeConnection model by generating a scaffold.
+      </p>
+
+      <p>
+        <!-- <pre> -->
+          <code class="terminal">rails g scaffold NodeConnection child:references parent:references --no-stylesheets</code>
+        <!-- </pre> -->
+      </p>
+
+      <p>
+        Nodes will be connected with other nodes, but I can't make two column with the same "node" name.
+        Instead of that the names are "child" and "parent". I think the same result
+        can be achived by <code class="terminal_inline">child_id:integer parent_id:integer</code>
+        instead of <code class="terminal_inline">child:references parent:references</code>.
+      </p>
+
+      <p>
+        An auto-generated migration is OK, I don't need to add anything at this moment, so I can
+        migrate.
+      </p>
+
+      <p>
+        <code class="terminal">rake db:migrate</code>
+      </p>
+
+      <p>
+        The associations in the <strong>NodeConnection</strong> model file should have
+        additional arguments.
+      </p>
+
+      <pre><code class="source">class NodeConnection < ActiveRecord::Base
+  belongs_to :parent, class_name: 'Node', foreign_key: 'parent_id'
+  belongs_to :child, class_name: 'Node', foreign_key: 'child_id'
+end</code></pre>
+
+      <p>
+        And an assiociation in the <strong>Node</strong> model file:
+      </p>
+
+      <pre><code class="source">class Node < ActiveRecord::Base
+  has_many :parent_connections, foreign_key: 'child_id', class_name: 'NodeConnection'
+  has_many :parents, through: :parent_connections
+
+  has_many :child_connections, foreign_key: 'parent_id', class_name: 'NodeConnection'
+  has_many :children, through: :child_connections
+end</code></pre>
+
+
+      <p>
+        For each node there are now methods <code class="source_inline">parents</code>
+        and <code class="source_inline">children</code> avaliable.
+      </p>
+
+
+    </article>
+
+  </main>
+
+  <footer class="main_footer">
+    <p>Copyleft 2015; All rights reversed</p>
+  </footer>
+
+</div> <!-- .main_container -->
+
+</body>
+
+</html>
