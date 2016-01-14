@@ -5,13 +5,28 @@
   border-radius: 10px;*/
 }
 main > header > h1 {
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 .main_container > footer {
-  margin-top: 25px;
+  margin-top: 10px;
 }
+
+main > article {
+  margin: 30px 0;
+}
+
+
+article > section {
+  margin: 5px 0;
+  border-top: 2px solid rgba(150, 150, 100, 0.2);
+}
+article > section:last-child {
+  border-bottom: 3px solid rgba(150, 150, 100, 0.2);
+}
+
 body {
   background-color: #050500;
+  font-size: 14px;
 }
 li {
    list-style-position: inside;
@@ -35,7 +50,7 @@ p {
 .terminal {
   border: 2px solid grey;
   padding: 7px 7px;
-  margin: 5px;
+  margin: 5px 0px;
   display: inline-block;
   background-color: #222222;
   color: #11aa11;
@@ -53,7 +68,7 @@ p {
 .source {
   border: 5px solid #3c4049;
   padding: 3px 7px;
-  margin: 5px;
+  margin: 5px 0px;;
   display: inline-block;
   background-color: #282c34;
   color: #92a5b1;
@@ -68,35 +83,35 @@ p {
   font-weight: bold;
 }
 .main_container {
-  max-width: 780px;
+  max-width: 750px;
   margin: 0 auto;
-  padding: 2px 4px;
-  border: 2px solid blue;
-  border-radius: 0;
+  padding: 5px 20px;
+  /*border: 2px solid blue;
+  border-radius: 0;*/
   background-color: #ffffee;
 
 }
 .main_tagline {
   margin-top: 0;
   padding-top: 0;
-  border: 1px solid red;
-  border-radius: 0;
+  /*border: 1px solid red;
+  border-radius: 0;*/
   font-family: 'Ubuntu', sans-serif;
 }
 .main_title {
   margin: 0;
   padding: 0;
-  border: 1px solid orange;
-  border-radius: 0;
+  /*border: 1px solid orange;
+  border-radius: 0;*/
   font-family: 'Ubuntu', sans-serif;
 }
 .main_menu {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0 auto;
-  border: 1px solid orange;
-  border-radius: 0;
+  margin: 0 1px;
+  /*border: 1px solid orange;
+  border-radius: 0;*/
 }
 .main_menu_item {
   min-width: 150px;
@@ -109,6 +124,8 @@ p {
   font-family: 'Ubuntu', sans-serif;
 }
 .main_menu_item > a {
+  padding: 5px 3px;
+
   display: block;
 }
 .main_menu_item > a.current, .main_menu_item > a:active {
@@ -127,8 +144,8 @@ p {
 .main_footer {
   text-align: center;
   font-style: italic;
-  border: 1px solid red;
-  border-radius: 0;
+  /*border: 1px solid red;
+  border-radius: 0;*/
   font-family: 'Ubuntu', sans-serif;
 }
 main > header {

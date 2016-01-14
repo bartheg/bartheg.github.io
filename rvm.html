@@ -39,23 +39,169 @@
     </header>
     <article>
       <header>
-        <h1 class="">Instalation</h1>
+        <h1 class="">Installation</h1>
       </header>
+
+      <section>
+        <p>
+          This installation description is for Ubuntu.
+        </p>
+      </section>
+
+      <section>
+        <p>
+          Curl is needed to install RVM. In case the system doesn't have it:
+        </p>
+
+        <p>
+          <code class="terminal">sudo apt-get install curl</code>
+        </p>
+      </section>
+
+      <section>
+        <p>
+          An installation of RVM doesn't require root privileges. RVM will install itself
+          in a hidden <code>.rvm</code> directory in user's home directory.
+        </p>
+
+        <p>
+          <code class="terminal">
+            gpg -keyserver hkp://keys.gnupg.net -recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+          </code>
+        </p>
+
+        <p>
+          <code class="terminal">
+            \curl -sSL https://get.rvm.io | bash -s stable
+          </code>
+      </section>
+
+      <section>
       <p>
-        This is a paragraph. This is a paragraph. This is a paragraph. This is a paragraph.
-        This is a paragraph. This is a paragraph. This is a paragraph. This is a paragraph.
-        This is a paragraph. This is a paragraph. This is a paragraph. This is a paragraph.
-        This is a paragraph. This is a paragraph. This is a paragraph. This is a paragraph.
-        This is a paragraph. This is a paragraph. This is a paragraph. This is a paragraph.
+        Now add this line to the <code>~/.bashrc</code> file
       </p>
+
       <p>
-        This is a paragraph. This is a paragraph. This is a paragraph. This is a paragraph.
-        This is a paragraph. This is a paragraph. This is a paragraph. This is a paragraph.
-        This is a paragraph. This is a paragraph. This is a paragraph. This is a paragraph.
-        This is a paragraph. This is a paragraph. This is a paragraph. This is a paragraph.
-        This is a paragraph. This is a paragraph. This is a paragraph. This is a paragraph.
+        <code class="source">
+          source ~/.rvm/scripts/rvm
+        </code>
       </p>
+
+      <p>
+        Then type that command (<code class="source_inline">source ~/.rvm/scripts/rvm</code>)
+        or restart the terminal.
+      </p>
+      </section>
+
+      <section>
+      <p>
+        Install requirements. The system will ask for the password.
+      </p>
+
+      <p>
+        <code class="terminal">
+          rvm requirements
+        </code>
+      </p>
+      </section>
+
+      <section>
+      <p>
+        You have installed RVM, but you don't have any Ruby installed inside RVM.
+        You can check this with <code class="terminal_inline">rvm&nbsplist</code> command.
+      </p>
+      </section>
+
     </article>
+
+
+    <article>
+      <header>
+        <h1 class="">Multiple Ruby versions management</h1>
+      </header>
+
+      <section>
+        <p>
+          <code class="terminal_inline">rvm list</code>
+          - list of installed Ruby verion (by RVM only).
+        </p>
+        <p>
+          <code class="terminal_inline">rvm install 2.3.0</code>
+          - install Ruby version 2.3.0.
+        </p>
+        <p>
+          <code class="terminal_inline">rvm remove 2.2.1</code>
+          - remove Ruby version 2.2.1.
+        </p>
+        <p>
+          <code class="terminal_inline">rvm use 2.2.3</code>
+          - use Ruby 2.2.3.
+        </p>
+        <p>
+          <code class="terminal_inline">rvm use system</code>
+          - use Ruby installed by operating system.
+        </p>
+        <p>
+          <code class="terminal_inline">rvm default</code>
+          - use default Ruby version.
+        </p>
+        <p>
+          <code class="terminal_inline">rvm reset</code>
+          - set system Ruby as default.
+        </p>
+        <p>
+          <code class="terminal_inline">rvm --default use 2.3.0</code>
+          - set 2.3.0 to default and switch to it.
+        </p>
+
+
+    </article>
+
+
+    <article>
+      <header>
+        <h1 class="">Gemsets management</h1>
+      </header>
+
+      <section>
+
+    <p>
+      <code class="terminal_inline"></code>
+    </p>
+    <p>
+      <code class="terminal_inline></code>
+    </p>
+    <p>
+      <code class="terminal_inline></code>
+    </p>
+    <p>
+      <code class="terminal_inline></code>
+    </p>
+    <p>
+      <code class="terminal_inline></code>
+    </p>
+    <p>
+      <code class="terminal_inline></code>
+    </p>
+    <p>
+      <code class="terminal_inline></code>
+    </p>
+    <p>
+      <code class="terminal_inline></code>
+    </p>
+    <p>
+      <code class="terminal_inline></code>
+    </p>
+    <p>
+      <code class="terminal_inline></code>
+    </p>
+    <p>
+      <code class="terminal_inline></code>
+    </p>
+
+  </article>
+
+
 
 </main>
 
