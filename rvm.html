@@ -65,15 +65,12 @@
         </p>
 
         <p>
-          <code class="terminal">
-            gpg -keyserver hkp://keys.gnupg.net -recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+          <code class="terminal">gpg -keyserver hkp://keys.gnupg.net -recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
           </code>
         </p>
 
         <p>
-          <code class="terminal">
-            \curl -sSL https://get.rvm.io | bash -s stable
-          </code>
+          <code class="terminal">\curl -sSL https://get.rvm.io | bash -s stable</code>
       </section>
 
       <section>
@@ -112,18 +109,27 @@
       </p>
       </section>
 
+      <section>
+      <p>
+        To remove RVM from your system just delete <code>~/.rvm</code> directory.
+        Then delete the lines <code class="source_inline">source ~/.rvm/scripts/rvm</code>
+        and <code class="source_inline">export PATH="$PATH:$HOME/.rvm/bin"</code>
+        from <code>~/.bashrc</code>.
+      </p>
+      </section>
+
     </article>
 
 
     <article>
       <header>
-        <h1 class="">Multiple Ruby versions management</h1>
+        <h1 class="">Ruby versions management</h1>
       </header>
 
       <section>
         <p>
           <code class="terminal_inline">rvm list</code>
-          - list of installed Ruby verion (by RVM only).
+          - display list of installed Ruby versions (by RVM only).
         </p>
         <p>
           <code class="terminal_inline">rvm install 2.3.0</code>
@@ -151,9 +157,21 @@
         </p>
         <p>
           <code class="terminal_inline">rvm --default use 2.3.0</code>
-          - set 2.3.0 to default and switch to it.
+          - set 2.3.0 to default and switch to&nbspit.
         </p>
 
+        <p>
+          <code class="terminal_inline">rvm docs generate</code>
+          - generate a documentation for the current Ruby interpreter.
+        </p>
+
+        <p>
+          <code class="terminal_inline">rvm cleanup all</code>
+          - delete source files, archives etc. It saves disk space.
+          The suorces are reqiured to generate documentation.
+        </p>
+
+      </section>
 
     </article>
 
@@ -163,45 +181,110 @@
         <h1 class="">Gemsets management</h1>
       </header>
 
+
       <section>
 
-    <p>
-      <code class="terminal_inline"></code>
-    </p>
-    <p>
-      <code class="terminal_inline></code>
-    </p>
-    <p>
-      <code class="terminal_inline></code>
-    </p>
-    <p>
-      <code class="terminal_inline></code>
-    </p>
-    <p>
-      <code class="terminal_inline></code>
-    </p>
-    <p>
-      <code class="terminal_inline></code>
-    </p>
-    <p>
-      <code class="terminal_inline></code>
-    </p>
-    <p>
-      <code class="terminal_inline></code>
-    </p>
-    <p>
-      <code class="terminal_inline></code>
-    </p>
-    <p>
-      <code class="terminal_inline></code>
-    </p>
-    <p>
-      <code class="terminal_inline></code>
-    </p>
+        <p>
+          <code class="terminal_inline">rvm gemset list</code>
+          - display list of gemsets.
+        </p>
+        <p>
+          The <code>global</code> gemset shares gems to all gemsets for the current interpreter.
+          The <code>default</code> gemset is used when no other gemset is selected.
+        </p>
+
+        <p>
+          <code class="terminal_inline">rvm gemset list_all</code>
+          - display list of gemsets for all Ruby versions.
+        </p>
+
+        <p>
+          <code class="terminal_inline">rvm current</code>
+          - display current Ruby version and current gemset. I don't know why this
+          command is not in the manual.
+        </p>
+
+        <p>
+          <code class="terminal_inline">rvm gemset create rails-test</code>
+          - create a new gemset named 'rails-test'.
+        </p>
+
+        <p>
+          <code class="terminal_inline">rvm gemset delete rails-test</code>
+          - delete rails-test' gemset.
+        </p>
+
+        <p>
+          <code class="terminal_inline">rvm gemset use rails-test</code>
+          - use 'rails-test' gemset.
+        </p>
+
+        <p>
+          <code class="terminal_inline">rvm gemset use default</code>
+          - use default gemset.
+        </p>
+
+        <p>
+          <code class="terminal_inline">rvm use 2.3.0@rails-test</code>
+          - shortcut for <code class="terminal_inline">rvm use 2.3.0</code>
+          then <code class="terminal_inline">rvm gemset use rails-test</code>.
+        </p>
+        <p>
+          <code class="terminal_inline">rvm gemset rename rails-test rails-t</code>
+          - change 'rails-test' gemset name to 'rails-t'.
+        </p>
+
+        <p>
+          <code class="terminal_inline">rvm use 2.3.0@rails-t --default</code>
+          - set 2.3.0@rails-t as a default gemset for each terminal session
+          and switch to it.
+        </p>
+
+        <p>
+          <code class="terminal_inline">rvm use --create 2.3.0@project</code>
+          - create 'project' gemset for 2.3.0 version of Ruby and switch to it.
+        </p>
+
+        <p>
+          <code class="terminal_inline">rvm --ruby-version use 2.3.0@project</code>
+          - create two files: <code>.ruby-version</code> and <code>.ruby-gemset</code>.
+          Do this in all your project directories. This makes you use automatically
+          the proper version of Ruby and gemest in the project's directory.
+        </p>
+
+      </section>
 
   </article>
 
+  <article>
+    <header>
+      <h1 class="">Gems management</h1>
+    </header>
 
+    <section>
+
+      <p>
+        <code class="terminal_inline">gem list</code>
+        - display list of gems for the current Ruby interpreter and gemset.
+      </p>
+
+      <p>
+        <code class="terminal_inline">gem install bundler </code>
+        - install 'bundler' gem in the current gemset.
+      </p>
+
+      <p>
+        <code class="terminal_inline">rvm @global do geminstall bundler </code>
+        - install 'bundler' gem in the global space (all gemsets) for the current Ruby interpreter.
+      </p>
+
+
+
+
+
+    </section>
+
+</article>
 
 </main>
 
