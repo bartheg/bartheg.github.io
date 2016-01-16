@@ -20,7 +20,8 @@ article > header {
 }
 
 article > section {
-  margin: 5px 0;
+  padding: 15px 0;
+  margin: 0 0;
   border-top: 2px solid rgba(150, 150, 100, 0.2);
 }
 article > section:last-child {
@@ -47,8 +48,9 @@ figcaption {
 }
 p {
   font-family: 'Noticia Text', serif;
-  margin-top: 6px;
-  margin-bottom: 6px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  padding: 1px 0;
 }
 code {
   /*background-color: lightgrey;*/
@@ -59,8 +61,8 @@ code {
 }
 .terminal {
   border: 2px solid grey;
-  padding: 7px 7px;
-  margin: 5px 0px;
+  padding: 4px 7px;
+  margin: 1px 0px;
   display: inline-block;
   background-color: #222222;
   color: #11aa11;
@@ -68,7 +70,7 @@ code {
 }
 .terminal_inline {
   /*border: 2px solid grey;*/
-  padding: 3px 3px;
+  padding: 2px 3px;
   /*margin: 5px;*/
   display: inline;
   background-color: #222222;
@@ -78,14 +80,14 @@ code {
 .source {
   border: 5px solid #3c4049;
   padding: 3px 7px;
-  margin: 5px 0px;;
+  margin: 1px 0px;;
   display: inline-block;
   background-color: #282c34;
   color: #92a5b1;
 }
 .source_inline {
   /*border: 5px solid #3c4049;*/
-  padding: 3px 3px;
+  padding: 2px 3px;
   /*margin: 5px;*/
   display: inline;
   background-color: #282c34;

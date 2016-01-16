@@ -23,7 +23,7 @@
   </header>
 
   <nav class="main_menu">
-    <div class="main_menu_item"><a href="index.html" class="current">Home Page</a></div>
+    <div class="main_menu_item"><a href="index.html">Home Page</a></div>
     <div class="main_menu_item"><a href="html.html">HTML</a></div>
     <div class="main_menu_item"><a class="empty" href="css.html">CSS</a></div>
     <div class="main_menu_item"><a class="" href="rvm.html">RVM</a></div>
@@ -31,28 +31,61 @@
     <div class="main_menu_item"><a class="empty" href="ruby.html">Ruby</a></div>
     <div class="main_menu_item"><a class="empty" href="jquery.html">jQuery</a></div>
     <div class="main_menu_item"><a class="empty" href="english.html">English</a></div>
-    <div class="main_menu_item"><a class="empty" href="heroku.html">Heroku</a></div>
-    <div class="main_menu_item"><a class="empty" href="git.html">Git</a></div>
-
+    <div class="main_menu_item"><a class="" href="heroku.html">Heroku</a></div>
+    <div class="main_menu_item"><a class="current" href="git.html">Git</a></div>
   </nav>
 
   <main>
     <header>
-      <h1 class="">Home Page</h1>
+      <h1 class="">Git</h1>
     </header>
     <article>
       <header>
-        <h1 class="">About this site</h1>
+        <h1 class="">Installation and configuration</h1>
       </header>
-      <p>
-        This site is my private notepad about web development.
-      </p>
-      <p>
-        Articles will be creating bit by bit and I am sure many of them will be unfinished for a long time.
-      </p>
+
+      <section>
+        <p>
+          This installation description is for Ubuntu.
+        </p>
+        <p>
+          It is installed by default.
+        </p>
+      </section>
+
+      <section>
+        <p>
+          User name and email configuration (for all projects of that user).
+        </p>
+        <p>
+          <code class="terminal">git config --global user.name "Krzysztof Kowalski"</code>
+        </p>
+        <p>
+          <code class="terminal">git config --global user.email k.kowalski@example.com</code>
+        </p>
+
+      </section>
+
+      <section>
+        <p>
+          User name and email configuration just for that project.
+        </p>
+        <p>
+          <code class="terminal">git config --local user.name "Krzysztof Kowalski"</code>
+        </p>
+        <p>
+          <code class="terminal">git config --local user.email k.kowalski@example.com</code>
+        </p>
+
+      </section>
+
+
     </article>
 
+
+
 </main>
+
 
   <footer class="main_footer">
     <p>Copyleft 2015; All rights reversed</p>

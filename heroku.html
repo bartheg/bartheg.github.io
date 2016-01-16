@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+
+  <title>Rails Noob's Notes</title>
+
+  <meta name="description" content="Notes from rails learning."/>
+  <meta name="keywords" content=""/>
+   <meta name="author" content="Bartłomiej Sielski">
+  <link rel="stylesheet" href="styles.css" type="text/css"/>
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Noticia+Text|Cousine' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+<div class="main_container">
+
+  <header>
+    <h1 class="main_title">Rails Noob's Notes</h1>
+    <p class="main_tagline">Because my memory is good but short.</p>
+  </header>
+
+  <nav class="main_menu">
+    <div class="main_menu_item"><a href="index.html">Home Page</a></div>
+    <div class="main_menu_item"><a href="html.html">HTML</a></div>
+    <div class="main_menu_item"><a class="empty" href="css.html">CSS</a></div>
+    <div class="main_menu_item"><a class="" href="rvm.html">RVM</a></div>
+    <div class="main_menu_item"><a href="rails.html">Rails</a></div>
+    <div class="main_menu_item"><a class="empty" href="ruby.html">Ruby</a></div>
+    <div class="main_menu_item"><a class="empty" href="jquery.html">jQuery</a></div>
+    <div class="main_menu_item"><a class="empty" href="english.html">English</a></div>
+    <div class="main_menu_item"><a class="current" href="heroku.html">Heroku</a></div>
+    <div class="main_menu_item"><a class="" href="git.html">Git</a></div>
+  </nav>
+
+  <main>
+    <header>
+      <h1 class="">Heroku</h1>
+    </header>
+    <article>
+      <header>
+        <h1 class="">Installation</h1>
+      </header>
+
+      <section>
+        <p>
+          This installation description is for Ubuntu.
+        </p>
+      </section>
+
+      <section>
+        <p>
+          Create an account on https://www.heroku.com/ if you don't have one.
+        </p>
+      </section>
+
+      <section>
+
+        <p>
+          Go on https://toolbelt.heroku.com/ and install Heroku client.
+        </p>
+
+        <p>
+          <code class="terminal">wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh</code>
+        </p>
+
+        <p>
+          Or
+        </p>
+
+        <p>
+          <code class="terminal">sudo apt-get install heroku</code>
+        </p>
+
+      </section>
+
+      <section>
+        <p>
+          To uninstall use
+        </p>
+
+        <p>
+          <code class="terminal">sudo apt-get purge heroku</code>
+        </p>
+      </section>
+
+
+    </article>
+
+    <article>
+      <header>
+        <h1 class="">Login</h1>
+      </header>
+
+      <section>
+        <p>
+          <code class="terminal">heroku login</code>
+        </p>
+      </section>
+
+
+    </article>
+
+    <article>
+      <header>
+        <h1 class="">Deploy an application</h1>
+      </header>
+
+      <section>
+        <p>
+          You must be in the project directory and have created commited git repository.
+        </p>
+      </section>
+
+      <section>
+        <p>
+          <code class="terminal">heroku create unique-app-name</code>
+        </p>
+
+        <p>
+          Or just
+        </p>
+
+        <p>
+          <code class="terminal">heroku create</code>
+          To let heroku create a random name for you.
+        </p>
+
+        <p>
+          You can change the name with <code class="terminal_inline">heroku rename the-new-name-for-app</code>.
+        </p>
+
+        <p>
+
+        </p>
+
+
+
+      </section>
+
+
+    </article>
+
+</main>
+
+
+  <footer class="main_footer">
+    <p>Copyleft 2015; All rights reversed</p>
+  </footer>
+
+</div> <!-- .main_container -->
+
+</body>
+
+</html>
