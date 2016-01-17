@@ -32,7 +32,7 @@
     <div class="main_menu_item"><a class="empty" href="jquery.html">jQuery</a></div>
     <div class="main_menu_item"><a class="empty" href="english.html">English</a></div>
     <div class="main_menu_item"><a class="current" href="heroku.html">Heroku</a></div>
-    <div class="main_menu_item"><a class="" href="git.html">Git</a></div>
+    <div class="main_menu_item"><a class="empty" href="git.html">Git</a></div>
   </nav>
 
   <main>
@@ -76,6 +76,17 @@
 
       </section>
 
+
+      <section>
+        <p>
+          Log in.
+        </p>
+        <p>
+          <code class="terminal">heroku login</code>
+        </p>
+      </section>
+
+
       <section>
         <p>
           To uninstall use
@@ -91,34 +102,21 @@
 
     <article>
       <header>
-        <h1 class="">Login</h1>
+        <h1 class="">Deploy a rails application</h1>
       </header>
 
       <section>
         <p>
-          <code class="terminal">heroku login</code>
+          <strong>Creating a heroku project</strong>
         </p>
-      </section>
 
-
-    </article>
-
-    <article>
-      <header>
-        <h1 class="">Deploy an application</h1>
-      </header>
-
-      <section>
         <p>
-          You must be in the project directory and have created commited git repository.
+          You must be in the project directory.
         </p>
-      </section>
 
-      <section>
         <p>
           <code class="terminal">heroku create unique-app-name</code>
         </p>
-
         <p>
           Or just
         </p>
@@ -132,11 +130,71 @@
           You can change the name with <code class="terminal_inline">heroku rename the-new-name-for-app</code>.
         </p>
 
-        <p>
+      </section>
 
+      <section>
+        <p>
+          <strong>Prepering the application</strong>
+        </p>
+        <p>
+          Add your ruby version to the <code>Gemfile</code>.
+        </p>
+        <p>
+          <code class="source">ruby '2.2.1'</code>
+        </p>
+        <p>
+          Move 'sqlite3' gem from the global space to the development and test groups.
+        </p>
+        <p>
+          <pre><code class="source">group :development, :test do
+  gem 'sqlite3'
+end</code></pre>
         </p>
 
+        <p>
+          Add gems 'pg' and rails_12factor' to the production grop.
+        </p>
 
+        <p>
+          <pre><code class="source">group :production do
+  gem 'pg', '~> 0.18.4'
+  gem 'rails_12factor', '~> 0.0.3'
+end</code></pre>
+        </p>
+        <p>
+          Execute gem changes.
+        </p>
+        <p>
+          <code class="terminal">bundle --without production</code>
+        </p>
+
+      </section>
+
+      <section>
+
+        <p>
+          <strong>Upload to Heroku</strong>
+        </p>
+
+        <p>
+          Make a commit.
+        </p>
+
+        <p>
+          <code class="terminal">git add .</code>
+        </p>
+
+        <p>
+          <code class="terminal">git commit -m"Some comment"</code>
+        </p>
+
+        <p>
+          Push the app to heroku.
+        </p>
+
+        <p>
+          <code class="terminal">git push heroku master</code>
+        </p>
 
       </section>
 

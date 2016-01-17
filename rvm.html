@@ -31,7 +31,7 @@
     <div class="main_menu_item"><a class="empty" href="ruby.html">Ruby</a></div>
     <div class="main_menu_item"><a class="empty" href="jquery.html">jQuery</a></div>
     <div class="main_menu_item"><a class="empty" href="english.html">English</a></div>
-    <div class="main_menu_item"><a class="empty" href="heroku.html">Heroku</a></div>
+    <div class="main_menu_item"><a class="" href="heroku.html">Heroku</a></div>
     <div class="main_menu_item"><a class="empty" href="git.html">Git</a></div>
 
   </nav>
@@ -117,7 +117,7 @@
         To remove RVM from your system just delete <code>~/.rvm</code> directory.
         Then delete the lines <code class="source_inline">source ~/.rvm/scripts/rvm</code>
         and <code class="source_inline">export PATH="$PATH:$HOME/.rvm/bin"</code>
-        from <code>~/.bashrc</code>.
+        (created by heroku?) from <code>~/.bashrc</code>.
       </p>
       </section>
 
@@ -178,12 +178,10 @@
 
     </article>
 
-
     <article>
       <header>
         <h1 class="">Gemsets management</h1>
       </header>
-
 
       <section>
 
@@ -286,13 +284,31 @@
         - install 'bundler' gem in the global space (all gemsets) for the current Ruby interpreter.
       </p>
 
-
-
-
-
     </section>
 
 </article>
+
+<article>
+  <header>
+    <h1 class="">Problems</h1>
+  </header>
+
+  <section>
+
+    <p>
+      <strong>"Warning! PATH is not properly set up,"</strong>... blah, blah, blah.
+    </p>
+
+    <p>
+      Move the <code class="source_inline">source ~/.rvm/scripts/rvm</code>
+      line to the end of the <code>.bashrc</code> file. Restart the terminal.
+    </p>
+
+
+  </section>
+
+</article>
+
 
 </main>
 
