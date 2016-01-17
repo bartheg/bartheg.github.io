@@ -54,9 +54,6 @@
         <p>
           Create an account on https://www.heroku.com/ if you don't have one.
         </p>
-      </section>
-
-      <section>
 
         <p>
           Go on https://toolbelt.heroku.com/ and install Heroku client.
@@ -74,10 +71,6 @@
           <code class="terminal">sudo apt-get install heroku</code>
         </p>
 
-      </section>
-
-
-      <section>
         <p>
           Log in.
         </p>
@@ -166,6 +159,10 @@ end</code></pre>
         </p>
         <p>
           <code class="terminal">bundle --without production</code>
+        </p>
+
+        <p>
+          In view files instead of <code class="source_inline">"logo.png"</code> use <code class="source_inline"><%= asset_path("logo.png") %></code>.
         </p>
 
       </section>
