@@ -23,36 +23,66 @@
   </header>
 
   <nav class="main_menu">
-    <div class="main_menu_item"><a href="index.html" class="current">Home Page</a></div>
+    <div class="main_menu_item"><a href="index.html">Home Page</a></div>
     <div class="main_menu_item"><a href="html.html">HTML</a></div>
     <div class="main_menu_item"><a class="empty" href="css.html">CSS</a></div>
     <div class="main_menu_item"><a class="" href="rvm.html">RVM</a></div>
     <div class="main_menu_item"><a href="rails.html">Rails</a></div>
-    <div class="main_menu_item"><a class="" href="ruby.html">Ruby</a></div>
+    <div class="main_menu_item"><a class="current" href="ruby.html">Ruby</a></div>
     <div class="main_menu_item"><a class="empty" href="jquery.html">jQuery</a></div>
     <div class="main_menu_item"><a class="empty" href="english.html">English</a></div>
     <div class="main_menu_item"><a class="" href="heroku.html">Heroku</a></div>
     <div class="main_menu_item"><a class="empty" href="git.html">Git</a></div>
     <div class="main_menu_item"><a class="" href="linux.html">Linux</a></div>
 
-
   </nav>
 
   <main>
     <header>
-      <h1 class="">Home Page</h1>
+      <h1 class="">Ruby</h1>
     </header>
+
     <article>
       <header>
-        <h1 class="">About this site</h1>
+        <h1 class="">Parameters made of hash</h1>
       </header>
-      <p>
-        This site is my private notepad about web development.
-      </p>
-      <p>
-        Articles will be creating bit by bit and I am sure many of them will be unfinished for a long time.
-      </p>
-    </article>
+
+      <section>
+        <p>
+          Using <code>fetch</code> with default values.
+        </p>
+        <p>
+          <pre><code class="source">def initialize(args)
+  @health = args.fetch(:health, 10)
+  @mana = args.fetch(:mana, 5)
+  @attack = args.fetch(:attack, 5)
+  @defense = args.fetch(:defense, 5)
+end</code></pre>
+        </p>
+      </section>
+
+      <section>
+        <p>
+          Using <code>merge</code> and <code>defaults</code> methods.
+        </p>
+        <p>
+          <pre><code class="source">def initialize(args)
+  args = defaults.merge args
+  @health = args[:health]
+  @mana = args[:mana]
+  @attack = args[:attack]
+  @defense = args[:defense]
+  def defaults
+    { health: 10,
+      mana: 5,
+      attack: 5,
+      defense: 5 }
+  end
+end</code></pre>
+        </p>
+      </section>
+
+</article>
 
 </main>
 

@@ -28,7 +28,7 @@
     <div class="main_menu_item"><a class="empty" href="css.html">CSS</a></div>
     <div class="main_menu_item"><a class="" href="rvm.html">RVM</a></div>
     <div class="main_menu_item"><a href="rails.html">Rails</a></div>
-    <div class="main_menu_item"><a class="empty" href="ruby.html">Ruby</a></div>
+    <div class="main_menu_item"><a class="" href="ruby.html">Ruby</a></div>
     <div class="main_menu_item"><a class="empty" href="jquery.html">jQuery</a></div>
     <div class="main_menu_item"><a class="empty" href="english.html">English</a></div>
     <div class="main_menu_item"><a class="" href="heroku.html">Heroku</a></div>
@@ -42,6 +42,63 @@
     <header>
       <h1 class="">Linux</h1>
     </header>
+
+    <article>
+      <header>
+        <h1 class="">Tar</h1>
+      </header>
+
+      <section>
+        <p>
+          Createing a archive from a directory.
+        </p>
+        <p>
+          <code class="terminal">tar -czvf archive.tar.gz directory/</code>
+        </p>
+        <p>
+          Or just
+        </p>
+        <p>
+          <code class="terminal">tar czf archive.tar.gz directory</code>
+        </p>
+
+      </section>
+
+      <section>
+        <p>
+          Extracting.
+        </p>
+        <p>
+          <code class="terminal">tar -xzvf archive.tar.gz</code>
+        </p>
+        <p>
+          Or
+        </p>
+        <p>
+          <code class="terminal">tar xzf archive.tar.gz</code>
+        </p>
+
+      </section>
+
+      <section>
+        <p>
+          To use <code>bzip2</code> instead of <code>gzip</code> use
+          <code class="terminal_inline">j</code> option instead of
+          <code class="terminal_inline">z</code>. For <code>bzip2</code>
+          the file extension convention is <code>.bz2</code>
+        </p>
+      </section>
+
+      <section>
+        <p>
+          List (test) the content of the archive.
+        </p>
+        <p>
+          <code class="terminal">tar tf archive.tar.gz</code>
+        </p>
+      </section>
+
+    </article>
 
     <article>
       <header>
