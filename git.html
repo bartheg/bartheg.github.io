@@ -34,6 +34,8 @@
     <div class="main_menu_item"><a class="" href="heroku.html">Heroku</a></div>
     <div class="main_menu_item"><a class="current" href="git.html">Git</a></div>
     <div class="main_menu_item"><a class="" href="linux.html">Linux</a></div>
+    <div class="main_menu_item"><a class="" href="rspec.html">Rspec</a></div>
+    <div class="main_menu_item"><a class="" href="bundler.html">Bundler</a></div>
 
   </nav>
 
@@ -84,9 +86,93 @@
 
     </article>
 
+    <article>
+      <header>
+        <h1 class="">Undo changes</h1>
+      </header>
+
+      <section>
+        <p>
+          Back to the last commit, when unwanted changes are not commit and not added.
+        </p>
+
+        <p>
+          <code class="terminal">git checkout -- .</code>
+        </p>
+        <p>
+          And then
+        </p>
+        <p>
+          <code class="terminal">git clean -df</code>
+        </p>
+
+        <p>
+          Or
+        </p>
+
+        <p>
+          <code class="terminal">git reset --hard</code>
+        </p>
+        <p>
+          And then
+        </p>
+        <p>
+          <code class="terminal">git clean -df</code>
+        </p>
+
+        <p>
+          Or probably the best way:
+        </p>
+
+        <p>
+          <code class="terminal">git add .</code>
+        </p>
+        <p>
+          And then
+        </p>
+        <p>
+          <code class="terminal">git reset --hard</code>
+        </p>
+      </section>
 
 
-</main>
+      <section>
+        <p>
+          Back to the last commit, when unwanted changes are not commit but added.
+        </p>
+
+        <p>
+          <code class="terminal">git reset --hard</code>
+        </p>
+
+      </section>
+
+
+      <section>
+        <p>
+          Back to the any commit with working tree added to the index or not.
+        </p>
+
+        <p>
+          To be sure that all changes are added.
+        </p>
+        <p>
+          <code class="terminal">git add .</code>
+        </p>
+        <p>
+          And then to go back to the pre-pre-last (second to last) commit.
+        </p>
+        <p>
+          <code class="terminal">git reset --hard HEAD~2</code>
+        </p>
+
+
+      </section>
+
+    </article>
+
+
+  </main>
 
 
   <footer class="main_footer">

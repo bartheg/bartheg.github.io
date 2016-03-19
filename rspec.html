@@ -24,7 +24,7 @@
 
   <nav class="main_menu">
     <div class="main_menu_item"><a href="index.html">Home Page</a></div>
-    <div class="main_menu_item"><a class="current" href="html.html">HTML</a></div>
+    <div class="main_menu_item"><a href="html.html">HTML</a></div>
     <div class="main_menu_item"><a class="empty" href="css.html">CSS</a></div>
     <div class="main_menu_item"><a class="" href="rvm.html">RVM</a></div>
     <div class="main_menu_item"><a href="rails.html">Rails</a></div>
@@ -34,60 +34,46 @@
     <div class="main_menu_item"><a class="" href="heroku.html">Heroku</a></div>
     <div class="main_menu_item"><a class="empty" href="git.html">Git</a></div>
     <div class="main_menu_item"><a class="" href="linux.html">Linux</a></div>
-    <div class="main_menu_item"><a class="" href="rspec.html">Rspec</a></div>
+    <div class="main_menu_item"><a class="current" href="rspec.html">Rspec</a></div>
     <div class="main_menu_item"><a class="" href="bundler.html">Bundler</a></div>
-
 
   </nav>
 
   <main>
     <header>
-      <h1 class="">HTML</h1>
+      <h1 class="">Rspec</h1>
     </header>
+
     <article>
       <header>
-        <h1 class="">Empty template (boilerplate)</h1>
+        <h1 class="">Fake user console input (fake <code>Readline.readline</code>)</h1>
       </header>
 
+      <section>
+        <p>
+          In spec_helper.rb
+        </p>
+        <p>
+          <pre><code class="source">
+def setup_fake_input(*args)
+  allow(Readline).to receive(:readline).and_return(*args)
+end
+</code></pre>
+        </p>
+      </section>
 
-  <pre><code class="source">&lt;!DOCTYPE HTML&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-  &lt;meta charset="utf-8"/&gt;
-  &lt;title&gt;Title Ipsum&lt;/title&gt;
-  &lt;meta name="description" content="Description ipsum."/&gt;
-  &lt;meta name="keywords" content="lorem, ipsum, foo, bar"/&gt;
-  &lt;!--- JQUERY ------------------&gt;
-  &lt;script src="//code.jquery.com/jquery-2.1.4.min.js"&gt;&lt;/script&gt;
-  &lt;!--- CSS ---------------------&gt;
-  &lt;link rel="stylesheet" href="styles.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
+      <section>
+        <p>
+          In spec file setup fake input queue
+        </p>
+        <p>
+          <pre><code class="source">setup_fake_input('help', 'exit')</code></pre>
+        </p>
+      </section>
 
-  &lt;header&gt;
+</article>
 
-  &lt;/header&gt;
-
-  &lt;main&gt;
-    &lt;section&gt;
-    &lt;/section&gt;
-
-    &lt;section&gt;
-    &lt;/section&gt;
-  &lt;/main&gt;
-
-
-  &lt;footer&gt;
-
-  &lt;/footer&gt;
-
-
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-
-    </article>
-
-  </main>
+</main>
 
   <footer class="main_footer">
     <p>Copyleft 2015; All rights reversed</p>

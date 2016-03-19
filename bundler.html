@@ -24,7 +24,7 @@
 
   <nav class="main_menu">
     <div class="main_menu_item"><a href="index.html">Home Page</a></div>
-    <div class="main_menu_item"><a class="current" href="html.html">HTML</a></div>
+    <div class="main_menu_item"><a href="html.html">HTML</a></div>
     <div class="main_menu_item"><a class="empty" href="css.html">CSS</a></div>
     <div class="main_menu_item"><a class="" href="rvm.html">RVM</a></div>
     <div class="main_menu_item"><a href="rails.html">Rails</a></div>
@@ -35,59 +35,45 @@
     <div class="main_menu_item"><a class="empty" href="git.html">Git</a></div>
     <div class="main_menu_item"><a class="" href="linux.html">Linux</a></div>
     <div class="main_menu_item"><a class="" href="rspec.html">Rspec</a></div>
-    <div class="main_menu_item"><a class="" href="bundler.html">Bundler</a></div>
-
+    <div class="main_menu_item"><a class="current" href="bundler.html">Bundler</a></div>
 
   </nav>
 
   <main>
     <header>
-      <h1 class="">HTML</h1>
+      <h1 class="">Bundler</h1>
     </header>
+
     <article>
       <header>
-        <h1 class="">Empty template (boilerplate)</h1>
+        <h1 class="">Gemfile template</h1>
       </header>
 
+      <section>
+        <p>
+          <pre><code class="source">source 'https://rubygems.org'
 
-  <pre><code class="source">&lt;!DOCTYPE HTML&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-  &lt;meta charset="utf-8"/&gt;
-  &lt;title&gt;Title Ipsum&lt;/title&gt;
-  &lt;meta name="description" content="Description ipsum."/&gt;
-  &lt;meta name="keywords" content="lorem, ipsum, foo, bar"/&gt;
-  &lt;!--- JQUERY ------------------&gt;
-  &lt;script src="//code.jquery.com/jquery-2.1.4.min.js"&gt;&lt;/script&gt;
-  &lt;!--- CSS ---------------------&gt;
-  &lt;link rel="stylesheet" href="styles.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
+ruby "2.3.0"
 
-  &lt;header&gt;
+gem 'rails', '4.2.6'
+gem 'rspec-rails', '3.4.2'
+gem 'sass-rails', '5.0.4'
+gem 'uglifier', '2.7.2'
+gem 'coffee-rails', '4.1.1'
+gem 'turbolinks', '2.5.3'
+gem 'bcrypt', '3.1.11'
 
-  &lt;/header&gt;
+gem 'sqlite3', '1.3.11', group: [:test, :development]
+gem 'spring', '1.6.4', group: :development
 
-  &lt;main&gt;
-    &lt;section&gt;
-    &lt;/section&gt;
+gem 'pg', '0.18.4', group: :production
+gem 'rails_12factor', '0.0.3', group: :production</code></pre>
+        </p>
+      </section>
 
-    &lt;section&gt;
-    &lt;/section&gt;
-  &lt;/main&gt;
+</article>
 
-
-  &lt;footer&gt;
-
-  &lt;/footer&gt;
-
-
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-
-    </article>
-
-  </main>
+</main>
 
   <footer class="main_footer">
     <p>Copyleft 2015; All rights reversed</p>
