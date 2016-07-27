@@ -1,0 +1,28 @@
+stage:
+
+  zones:
+    outerZone
+    playZone
+    sheepSpawnZones:
+      sheepSpawnZones1
+      sheepSpawnZones4
+    dogSpawnZone
+
+  structures:
+    plants:
+      grass1
+      grass2
+      flower1
+      flower2
+    fences:
+      spikes1
+      spikes2
+      spikes9
+
+  animals:
+    sheeps:
+      sheep1
+      sheep2
+      sheep9
+    dogs:
+      dog
