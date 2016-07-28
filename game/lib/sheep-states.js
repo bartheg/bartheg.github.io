@@ -6,6 +6,29 @@ Dead.prototype.update = function(){
 
 };
 
+////////////////////
+
+function StartTraveling(animal){
+  this.animal = animal;
+}
+
+StartTraveling.prototype.update = function(){
+  if (this.animal.rally_point.x > this.animal.sprite.x && this.animal.sprite.scale.x < 0 ){
+    this.animal.turn();
+  }
+  else if (this.animal.rally_point.x < this.animal.sprite.x && this.animal.sprite.scale.x > 0 ) {
+    this.animal.turn();
+  }
+  this.animal.state = this.animal.traveling;
+  // console.log(this.animal.state.toString());
+};
+
+StartTraveling.prototype.toString = function(){
+  return 'start traveling';
+};
+
+///////////////
+
 function Traveling(sheep){
   this.sheep = sheep;
 }
@@ -28,7 +51,7 @@ Traveling.prototype.update = function(){
       else if (this.sheep instanceof Sheep) {
         this.sheep.state = this.sheep.eating;
       }
-      console.log(this.sheep.state.toString());
+      // console.log(this.sheep.state.toString());
     }
   }
 };
@@ -44,7 +67,7 @@ Eating.prototype.update = function(){
   var random = Math.random();
   if (random <= 0.005) {
     this.sheep.state = this.sheep.lookingForFood;
-    console.log(this.sheep.state.toString());
+    // console.log(this.sheep.state.toString());
   }
 };
 Eating.prototype.toString = function(){
@@ -59,8 +82,8 @@ LookingForFood.prototype.update = function(){
   var xMod = (Math.random() * this.maxDistance * 2) - this.maxDistance;
   var yMod = (Math.random() * this.maxDistance * 2) - this.maxDistance;
   this.sheep.rally_point.set(this.sheep.rally_point.x+= xMod, this.sheep.rally_point.y+=yMod);
-  this.sheep.state = this.sheep.traveling;
-  console.log(this.sheep.state.toString());
+  this.sheep.state = this.sheep.startTraveling;
+  // console.log(this.sheep.state.toString());
 };
 LookingForFood.prototype.toString = function(){
   return 'looking for food';

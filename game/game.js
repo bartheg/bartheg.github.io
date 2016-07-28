@@ -19,7 +19,7 @@
 
     var white_sheep;
     var green_sheep;
-    var how_many = 50;
+    var how_many = Math.random() * 20 + 10;
     var sheepSprites = new PIXI.Container();
     var sheeps = [];
     stage.addChild(sheepSprites);
@@ -27,7 +27,7 @@
     var dogs = [];
     stage.addChild(dogSprites);
 
-    var sheepSpawnPoint = new SpawnPoint({x: 1266 / 2, y:568 / 2}, 8);
+    var sheepSpawnPoint = new SpawnPoint({x: 1266 / 2, y:568 / 2}, 25);
     var dogSpawnPoint = new SpawnPoint({x:200, y:200}, 40);
 
     var gameDiv = document.getElementById('game_div');
@@ -38,7 +38,7 @@
     gameLoop();
 
     function setup() {
-      var colors = Array('white', 'black');
+      var colors = Array('white', 'white', 'white', 'black');
       var color;
       for(var i = 0; i < how_many; i++){
         color = colors[Math.floor(Math.random()*colors.length)];
@@ -75,7 +75,7 @@
       for(var i = 0; i < dogs.length; i++){
         if (clicked) {
           dogs[i].rally_point = click_point.clone();
-          dogs[i].state = dogs[i].traveling;
+          dogs[i].state = dogs[i].startTraveling;
         }
         dogs[i].update();
       }

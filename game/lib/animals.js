@@ -11,10 +11,15 @@ function Animal(texture, spawnPoint, container){
   this.rally_point = new PIXI.Point(this.sprite.x, this.sprite.y);
   container.addChild(this.sprite);
   this.traveling = new Traveling(this);
+  this.startTraveling = new StartTraveling(this);
   this.waiting = new Waiting(this);
-
   this.state = this.traveling;
 }
+
+
+Animal.prototype.turn = function() {
+  this.sprite.scale.x *= -1;
+};
 
 Animal.prototype.update = function() {
   this.state.update();
