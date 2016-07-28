@@ -9,10 +9,13 @@ function Animal(texture, spawnPoint, container){
   this.sprite.x = this.spawnPoint.getParkingPlace(this).x;
   this.sprite.y = this.spawnPoint.getParkingPlace(this).y;
   this.rally_point = new PIXI.Point(this.sprite.x, this.sprite.y);
-  container.addChild(this.sprite);
+  this.container = container;
+  this.container.addChild(this.sprite);
   this.traveling = new Traveling(this);
   this.startTraveling = new StartTraveling(this);
   this.waiting = new Waiting(this);
+  this.dying = new Dying(this);
+  this.dead = new Dead(this);
   this.state = this.traveling;
 }
 
@@ -27,18 +30,16 @@ Animal.prototype.update = function() {
 
 function Sheep(color, spawnPoint, container){
   this.color = color;
-  var pickTexture = function(color){
-    switch (color) {
-      case 'white':
-        return 'white-sheep.png';
-      break;
-      case 'black':
-        return 'black-sheep.png';
-      break;
-    }
-  };
-  var textu = pickTexture(this.color);
-  Animal.call(this, textu, spawnPoint, container);
+  if (this.color == 'white'){
+    this.texture = 'white-sheep.png';
+    this.deadTexture = 'dead-white-sheep.png'
+  }
+  else if (this.color == 'black') {
+    this.texture = 'black-sheep.png';
+    this.deadTexture = 'dead-black-sheep.png'
+  }
+
+  Animal.call(this, this.texture, spawnPoint, container);
   this.speed = 0.5;
   this.sprite.scale = new PIXI.Point(0.7, 0.7);
   this.sprite.interactive = true;

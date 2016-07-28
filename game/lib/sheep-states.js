@@ -1,3 +1,30 @@
+function Dying(sheep){
+  this.sheep = sheep;
+}
+
+Dying.prototype.update = function(){
+  console.log('lollolololol');
+  console.log(this.sheep);
+  console.log(this.sheep.sprite);
+  console.log(this.sheep.sprite.position);
+  var position = new PIXI.Point(this.sheep.sprite.position.x, this.sheep.sprite.position.y);
+  // var position = PIXI.Point.copy(this.sheep.sprite.position);
+  this.sheep.container.removeChild(this.sheep.sprite);
+  this.sheep.sprite = new PIXI.Sprite(PIXI.loader.resources[this.sheep.deadTexture].texture);
+  this.sheep.container.addChild(this.sheep.sprite);
+  this.sheep.sprite.anchor.x = 0.5;
+  this.sheep.sprite.anchor.y = 0.5;
+  this.sheep.sprite.scale = new PIXI.Point(0.7, 0.7);
+
+  this.sheep.state = this.sheep.dead;
+  this.sheep.sprite.position = position.clone();
+};
+Dying.prototype.toString = function(){
+  return 'dying';
+};
+
+////////////////////
+
 function Dead(sheep){
   this.sheep = sheep;
 }
@@ -5,7 +32,9 @@ function Dead(sheep){
 Dead.prototype.update = function(){
 
 };
-
+Dead.prototype.toString = function(){
+  return 'dead';
+};
 ////////////////////
 
 function StartTraveling(animal){
@@ -59,6 +88,8 @@ Traveling.prototype.toString = function(){
   return 'traveling';
 };
 
+////////////////////////////////////////////////
+
 function Eating(sheep){
   this.sheep = sheep;
 }
@@ -67,12 +98,20 @@ Eating.prototype.update = function(){
   var random = Math.random();
   if (random <= 0.005) {
     this.sheep.state = this.sheep.lookingForFood;
-    // console.log(this.sheep.state.toString());
+    console.log(this.sheep.state.toString());
+  }
+  else if (random <= 0.00509) {
+    this.sheep.state = this.sheep.dying;
+    console.log(this.sheep.state.toString());
+
   }
 };
 Eating.prototype.toString = function(){
   return 'eating';
 };
+
+///////////////////////////////////////////////////
+
 function LookingForFood(sheep){
   this.maxDistance = 50;
   this.sheep = sheep;
@@ -88,6 +127,8 @@ LookingForFood.prototype.update = function(){
 LookingForFood.prototype.toString = function(){
   return 'looking for food';
 };
+
+/////////////////////////////////////////////////////////////
 
 function Waiting(animal){
   this.animal = animal;

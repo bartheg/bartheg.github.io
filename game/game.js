@@ -33,7 +33,7 @@
     var gameDiv = document.getElementById('game_div');
     gameDiv.appendChild(renderer.view);
 
-    PIXI.loader.add('white-sheep.png').add('black-sheep.png').add('dog.png').add('spikes.png').load(setup);
+    PIXI.loader.add('white-sheep.png').add('dead-white-sheep.png').add('black-sheep.png').add('dead-black-sheep.png').add('dog.png').add('spikes.png').load(setup);
 
     gameLoop();
 
