@@ -20,12 +20,10 @@
     var white_sheep;
     var green_sheep;
     var how_many = Math.random() * 20 + 10;
-    var sheepSprites = new PIXI.Container();
+    var animalSprites = new PIXI.Container();
     var sheeps = [];
-    stage.addChild(sheepSprites);
-    var dogSprites = new PIXI.Container();
+    stage.addChild(animalSprites);
     var dogs = [];
-    stage.addChild(dogSprites);
 
     var sheepSpawnPoint = new SpawnPoint({x: 1266 / 2, y:568 / 2}, 45);
     var dogSpawnPoint = new SpawnPoint({x:200, y:200}, 40);
@@ -99,15 +97,15 @@
         if (color == 'white'){
           sheeps.push(new Sheep('white sheep',
           {idle: whiteSheepWaiting, walking: whiteSheepWalking, dead: whiteSheepDead},
-          sheepSpawnPoint, sheepSprites));
+          sheepSpawnPoint, animalSprites));
         }
         else if (color == 'black'){
           sheeps.push(new Sheep('black sheep',
           {idle: blackSheepWaiting, walking: blackSheepWalking, dead: blackSheepDead},
-          sheepSpawnPoint, sheepSprites));
+          sheepSpawnPoint, animalSprites));
         }
       }
-      var dog = new Dog('dog', {idle: dogWaiting, walking: dogWalking}, dogSpawnPoint, dogSprites);
+      var dog = new Dog('dog', {idle: dogWaiting, walking: dogWalking}, dogSpawnPoint, animalSprites);
       dogs.push(dog);
 
 
@@ -126,6 +124,7 @@
       requestAnimationFrame(gameLoop);
       updateGame();
       clicked = false;
+      animalSprites.children.sort(function(a,b){return a.y - b.y});
       renderer.render(stage);
     }
 
