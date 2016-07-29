@@ -27,28 +27,90 @@
     var dogs = [];
     stage.addChild(dogSprites);
 
-    var sheepSpawnPoint = new SpawnPoint({x: 1266 / 2, y:568 / 2}, 25);
+    var sheepSpawnPoint = new SpawnPoint({x: 1266 / 2, y:568 / 2}, 45);
     var dogSpawnPoint = new SpawnPoint({x:200, y:200}, 40);
 
     var gameDiv = document.getElementById('game_div');
     gameDiv.appendChild(renderer.view);
 
-    PIXI.loader.add('white-sheep.png').add('dead-white-sheep.png').add('black-sheep.png').add('dead-black-sheep.png').add('dog.png').add('spikes.png').load(setup);
+    PIXI.loader .add('whiteSheep', 'white-sheep.png')
+                .add('whiteSheepPaws1', 'white-sheep-paws1.png')
+                .add('whiteSheepPaws2', 'white-sheep-paws2.png')
+                .add('deadWhiteSheep', 'dead-white-sheep.png')
+                .add('blackSheep', 'black-sheep.png')
+                .add('blackSheepPaws1', 'black-sheep-paws1.png')
+                .add('blackSheepPaws2', 'black-sheep-paws2.png')
+                .add('deadBlackSheep', 'dead-black-sheep.png')
+                .add('skeletonSheep', 'skeleton-sheep.png')
+                .add('dog', 'dog.png')
+                .add('dogTailUp', 'dog-tail-up.png')
+                .add('dogPawsClose', 'dog-paws-close.png')
+                .add('spikes', 'spikes.png')
+                .load(setup);
 
     gameLoop();
 
     function setup() {
+
+      var dogWaiting = [
+        PIXI.loader.resources.dog.texture,
+        PIXI.loader.resources.dogTailUp.texture
+      ];
+      var dogWalking = [
+        PIXI.loader.resources.dog.texture,
+        PIXI.loader.resources.dogPawsClose.texture
+      ];
+
+      var whiteSheepWaiting = [
+        PIXI.loader.resources.whiteSheep.texture
+      ];
+
+      var whiteSheepWalking = [
+        PIXI.loader.resources.whiteSheepPaws1.texture,
+        PIXI.loader.resources.whiteSheep.texture,
+        PIXI.loader.resources.whiteSheepPaws2.texture,
+        PIXI.loader.resources.whiteSheep.texture      ];
+
+      var whiteSheepDead = [
+        PIXI.loader.resources.deadWhiteSheep.texture,
+        PIXI.loader.resources.skeletonSheep.texture
+      ];
+
+      var blackSheepWaiting = [
+        PIXI.loader.resources.blackSheep.texture,
+      ];
+
+      var blackSheepWalking = [
+        PIXI.loader.resources.blackSheepPaws1.texture,
+        PIXI.loader.resources.blackSheep.texture,
+        PIXI.loader.resources.blackSheepPaws2.texture,
+        PIXI.loader.resources.blackSheep.texture
+      ];
+
+      var blackSheepDead = [
+        PIXI.loader.resources.deadBlackSheep.texture,
+        PIXI.loader.resources.skeletonSheep.texture
+      ];
+
       var colors = Array('white', 'white', 'white', 'black');
       var color;
       for(var i = 0; i < how_many; i++){
         color = colors[Math.floor(Math.random()*colors.length)];
-        sheeps.push(new Sheep(color, sheepSpawnPoint, sheepSprites));
+        if (color == 'white'){
+          sheeps.push(new Sheep('white sheep',
+          {idle: whiteSheepWaiting, walking: whiteSheepWalking, dead: whiteSheepDead},
+          sheepSpawnPoint, sheepSprites));
+        }
+        else if (color == 'black'){
+          sheeps.push(new Sheep('black sheep',
+          {idle: blackSheepWaiting, walking: blackSheepWalking, dead: blackSheepDead},
+          sheepSpawnPoint, sheepSprites));
+        }
       }
-      var dog = new Dog('dog.png', dogSpawnPoint, dogSprites);
+      var dog = new Dog('dog', {idle: dogWaiting, walking: dogWalking}, dogSpawnPoint, dogSprites);
       dogs.push(dog);
-      console.log(dogs);
-      console.log(dogs.length);
-      console.log(dogs[0]);
+
+
     }
 
 

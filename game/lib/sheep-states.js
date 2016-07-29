@@ -3,22 +3,13 @@ function Dying(sheep){
 }
 
 Dying.prototype.update = function(){
-  console.log('lollolololol');
-  console.log(this.sheep);
-  console.log(this.sheep.sprite);
-  console.log(this.sheep.sprite.position);
-  var position = new PIXI.Point(this.sheep.sprite.position.x, this.sheep.sprite.position.y);
-  // var position = PIXI.Point.copy(this.sheep.sprite.position);
-  this.sheep.container.removeChild(this.sheep.sprite);
-  this.sheep.sprite = new PIXI.Sprite(PIXI.loader.resources[this.sheep.deadTexture].texture);
-  this.sheep.container.addChild(this.sheep.sprite);
-  this.sheep.sprite.anchor.x = 0.5;
-  this.sheep.sprite.anchor.y = 0.5;
-  this.sheep.sprite.scale = new PIXI.Point(0.7, 0.7);
-
+  this.sheep.changeSprite(this.sheep.deadSprite);
+  this.sheep.sprite.animationSpeed = 0.001;
+  this.sheep.sprite.loop = false;
+  this.sheep.sprite.play();
   this.sheep.state = this.sheep.dead;
-  this.sheep.sprite.position = position.clone();
 };
+
 Dying.prototype.toString = function(){
   return 'dying';
 };
@@ -35,6 +26,7 @@ Dead.prototype.update = function(){
 Dead.prototype.toString = function(){
   return 'dead';
 };
+
 ////////////////////
 
 function StartTraveling(animal){
@@ -42,12 +34,16 @@ function StartTraveling(animal){
 }
 
 StartTraveling.prototype.update = function(){
-  if (this.animal.rally_point.x > this.animal.sprite.x && this.animal.sprite.scale.x < 0 ){
-    this.animal.turn();
+  if (this.animal.rally_point.x > this.animal.sprite.x){
+    this.animal.direction = 1;
   }
-  else if (this.animal.rally_point.x < this.animal.sprite.x && this.animal.sprite.scale.x > 0 ) {
-    this.animal.turn();
+  else if (this.animal.rally_point.x < this.animal.sprite.x) {
+    this.animal.direction = -1;
   }
+  this.animal.changeSprite(this.animal.walkingSprite);
+  this.animal.sprite.animationSpeed = 0.1;
+  this.animal.sprite.loop = true;
+  this.animal.sprite.play();
   this.animal.state = this.animal.traveling;
   // console.log(this.animal.state.toString());
 };
@@ -58,27 +54,35 @@ StartTraveling.prototype.toString = function(){
 
 ///////////////
 
-function Traveling(sheep){
-  this.sheep = sheep;
+function Traveling(animal){
+  this.animal = animal;
 }
 
 Traveling.prototype.update = function(){
-  if (this.sheep.rally_point) {
-    var tx = this.sheep.rally_point.x - this.sheep.sprite.x;
-    var ty = this.sheep.rally_point.y - this.sheep.sprite.y;
+  if (this.animal.rally_point) {
+    var tx = this.animal.rally_point.x - this.animal.sprite.x;
+    var ty = this.animal.rally_point.y - this.animal.sprite.y;
     var dist = Math.sqrt(tx * tx + ty * ty);
-    var velX = (tx / dist) * this.sheep.speed;
-    var velY = (ty / dist) * this.sheep.speed;
+    var velX = (tx / dist) * this.animal.speed;
+    var velY = (ty / dist) * this.animal.speed;
     if (dist >= 1.50001) {
-      this.sheep.sprite.x += velX;
-      this.sheep.sprite.y += velY;
+      this.animal.sprite.x += velX;
+      this.animal.sprite.y += velY;
     }
     else {
-      if (this.sheep instanceof Dog){
-        this.sheep.state = this.sheep.waiting;
+      if (this.animal instanceof Dog){
+        this.animal.changeSprite(this.animal.idleSprite);
+        this.animal.sprite.animationSpeed = 0.12;
+        this.animal.sprite.loop = true;
+        this.animal.sprite.play();
+        this.animal.state = this.animal.waiting;
       }
-      else if (this.sheep instanceof Sheep) {
-        this.sheep.state = this.sheep.eating;
+      else if (this.animal instanceof Sheep) {
+        this.animal.changeSprite(this.animal.idleSprite);
+        this.animal.sprite.animationSpeed = 0.12;
+        this.animal.sprite.loop = true;
+        this.animal.sprite.play();
+        this.animal.state = this.animal.eating;
       }
       // console.log(this.sheep.state.toString());
     }
