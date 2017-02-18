@@ -1,84 +1,97 @@
 <!DOCTYPE HTML>
 <html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rails Noob's Notes</title>
-  <meta name="description" content="Notes from rails learning."/>
-  <meta name="keywords" content=""/>
-  <meta name="author" content="Bartłomiej Sielski">
-  <link rel="stylesheet" href="styles.css" type="text/css"/>
-  <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Noticia+Text|Cousine' rel='stylesheet' type='text/css'>
-</head>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rails Noob's Notes</title>
+    <meta name="description" content="Notes from rails learning."/>
+    <meta name="keywords" content=""/>
+    <meta name="author" content="Bartłomiej Sielski">
+    <link rel="stylesheet" href="styles.css" type="text/css"/>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Noticia+Text|Cousine' rel='stylesheet' type='text/css'>
+  </head>
 
-<body>
+  <body>
 
-<div class="main_container">
+    <div class="main_container">
 
-  <header>
-    <h1 class="main_title">Rails Noob's Notes</h1>
-    <p class="main_tagline">Because my memory is good but short.</p>
-  </header>
-
-  <nav class="main_menu">
-    <div class="main_menu_item"><a class="" href="index.html">Home Page</a></div>
-    <div class="main_menu_item"><a class="" href="html.html">HTML</a></div>
-    <div class="main_menu_item"><a class="empty" href="css.html">CSS</a></div>
-    <div class="main_menu_item"><a class="" href="rvm.html">RVM</a></div>
-    <div class="main_menu_item"><a class="" href="rails.html">Rails</a></div>
-    <div class="main_menu_item"><a class="" href="ruby.html">Ruby</a></div>
-    <div class="main_menu_item"><a class="empty" href="jquery.html">jQuery</a></div>
-    <div class="main_menu_item"><a class="empty" href="english.html">English</a></div>
-    <div class="main_menu_item"><a class="" href="heroku.html">Heroku</a></div>
-    <div class="main_menu_item"><a class="" href="git.html">Git</a></div>
-    <div class="main_menu_item"><a class="" href="linux.html">Linux</a></div>
-    <div class="main_menu_item"><a class="" href="rspec.html">Rspec</a></div>
-    <div class="main_menu_item"><a class="" href="bundler.html">Bundler</a></div>
-    <div class="main_menu_item"><a class="" href="emacs.html">Emacs</a></div>
-    <div class="main_menu_item"><a class="current" href="regex.html">Regular expressions</a></div>
-  </nav>
-
-  <main>
-    <header>
-      <h1 class="">Regular expressions</h1>
-    </header>
-    <article>
       <header>
-        <h1 class="">Special characters</h1>
+	<h1 class="main_title">Rails Noob's Notes</h1>
+	<p class="main_tagline">Because my memory is good but short.</p>
       </header>
 
-      <section>
-        <table>
-          <tr>
-            <th>Character</th>
-            <th>Definition</th>
-          </tr>
-          <tr>
-            <td>.</td>
-            <td>Any character.</td>
-          </tr>
-          <tr>
-            <td>\w</td>
-          <td>Any English letter, digit or "_" (underscore).</td>
-          </tr>
-          <tr>
-            <td>\d</td>
-          <td>Any digit character (0-9).</td>
-          </tr>
-        </table>
-      </section>
+      <nav class="main_menu">
+	<div class="main_menu_item"><a class="" href="index.html">Home Page</a></div>
+	<div class="main_menu_item"><a class="" href="html.html">HTML</a></div>
+	<div class="main_menu_item"><a class="empty" href="css.html">CSS</a></div>
+	<div class="main_menu_item"><a class="" href="rvm.html">RVM</a></div>
+	<div class="main_menu_item"><a class="" href="rails.html">Rails</a></div>
+	<div class="main_menu_item"><a class="" href="ruby.html">Ruby</a></div>
+	<div class="main_menu_item"><a class="empty" href="jquery.html">jQuery</a></div>
+	<div class="main_menu_item"><a class="empty" href="english.html">English</a></div>
+	<div class="main_menu_item"><a class="" href="heroku.html">Heroku</a></div>
+	<div class="main_menu_item"><a class="" href="git.html">Git</a></div>
+	<div class="main_menu_item"><a class="" href="linux.html">Linux</a></div>
+	<div class="main_menu_item"><a class="" href="rspec.html">Rspec</a></div>
+	<div class="main_menu_item"><a class="" href="bundler.html">Bundler</a></div>
+	<div class="main_menu_item"><a class="" href="emacs.html">Emacs</a></div>
+	<div class="main_menu_item"><a class="current" href="regex.html">Regular expressions</a></div>
+      </nav>
 
-    </article>
+      <main>
+	<header>
+	  <h1 class="">Regular expressions</h1>
+	</header>
+	<article>
+	  <header>
+            <h1 class="">Special characters</h1>
+	  </header>
 
-</main>
+	  <section>
+            <table>
+              <tr>
+		<th>Character</th>
+		<th>Definition</th>
+              </tr>
+              <tr>
+		<td>.</td>
+		<td>Any character.</td>
+              </tr>
+              <tr>
+		<td>\w</td>
+		<td>Any English letter, digit or "_" (underscore).</td>
+              </tr>
+              <tr>
+		<td>\W</td>
+		<td>Any character that is not \w.</td>
+              </tr>
+              <tr>
+		<td>\d</td>
+		<td>Any digit character (0-9).</td>
+              </tr>
+              <tr>
+		<td>\D</td>
+		<td>Any character that is not a digit (0-9).</td>
+              </tr>
+	      <tr>
+		<td>\s</td>
+		<td>Any white space character.</td>
+              </tr>
 
-  <footer class="main_footer">
-    <p>Copyleft 2015-2017; All rights reversed</p>
-  </footer>
+            </table>
+	  </section>
 
-</div> <!-- .main_container -->
+	</article>
 
-</body>
+      </main>
+
+      <footer class="main_footer">
+	<p>Copyleft 2015-2017; All rights reversed</p>
+      </footer>
+
+    </div> <!-- .main_container -->
+
+  </body>
 
 </html>
