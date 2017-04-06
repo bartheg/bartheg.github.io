@@ -1,0 +1,171 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #3f4142;
+    font-size: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form {
+    border-color: #c1ab5d;
+    border-width: 5px;
+    border-style: solid;
+    margin: 10px;
+    border-radius: 16px;
+   /* padding: 3px;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form__header {
+    color: #eeeeee;
+    text-align: center;
+    font-size: 14px;
+    padding: 3px;    
+    background-color: #403838;
+    width: 100%;
+    z-index: -1;
+}
+
+.form__body {
+    color: #eeeeee;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 3px;
+}
+
+.form__body--imprisonment {
+    flex-direction: column;
+}
+
+
+.value-picker {
+    display: inline-block;
+
+}
+
+.value-picker__label {
+    font-size: 12px;
+    font-family: monospace;
+}
+
+.value-picker__input {
+    color: #eeeeee;
+    text-align: center;
+    font-weight: bold;
+    font-family: monospace;
+    padding: 2px:
+    width: 2.5em;
+    background-color: inherit;
+    border-width: 1px;
+}
+
+
+#debugger {
+    font-family: monospace;
+    font-size: 11px;
+}
+
+.debug__log {
+    margin: 0 0;
+}
+
+.pretenders-table {
+    font-size: 12px;
+    color: #cccccc;
+}
+
+.pretenders-table__header {
+    padding-left: 6px;
+}
+
+.pretenders-table__cell {
+    padding: 2px;
+    text-align: center;
+    background: linear-gradient(#3f4142, #3d3940);
+}
+
+.pretenders-table__cell--name {
+    text-align: left;
+}
+
+.pretenders-table__text--magic {
+    color: #000000;
+    font-weight: bold;
+    font-family: monospace;
+    padding: 2px:
+}
+.pretenders-table__text--fire {
+    background-color: #b03523;
+}
+.pretenders-table__text--air {
+    background-color: #a38e96;
+}
+.pretenders-table__text--water {
+    background-color: #331d98;
+}
+.pretenders-table__text--earth {
+    background-color: #b08130;
+}
+.pretenders-table__text--astral {
+    background-color: #709b96;
+}
+.pretenders-table__text--death {
+    background-color: #701b63;
+}
+.pretenders-table__text--nature {
+    background-color: #3d7523;
+}
+.pretenders-table__text--blood {
+    background-color: #7d1b16;
+}
