@@ -54,13 +54,40 @@ body {
     align-items: center;
 }
 
+.nation-picker__option {
+    color: #eeeeee;
+    
+}
+
+.nation-picker__option--any {
+    background-color: #3f4142;
+
+}
+
+.nation-picker__option--ea {
+    background-color: #eeeeee;
+    color: #222222;
+
+}
+
+.nation-picker__option--ma {
+    background-color: #888888;
+    color: #eeeeee;
+
+}
+
+.nation-picker__option--la {
+    background-color: #111111;
+    color: #bbbbbb;
+
+}
+
 .form {
     border-color: #c1ab5d;
     border-width: 5px;
     border-style: solid;
     margin: 10px;
     border-radius: 16px;
-   /* padding: 3px;*/
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -91,23 +118,46 @@ body {
 
 .value-picker {
     display: inline-block;
+    margin: 2px 5px;
+    border-style: solid;
+    border-color: #cccccc;
+    border-width: 1px;
+    border-left-style: none;
+    border-top-style: none;
 
+}
+
+.value-picker--dominion {
+    margin-right: 20px;    
+}
+
+.value-picker--imprisonment {
+    border-width: 0;
 }
 
 .value-picker__label {
     font-size: 12px;
+    padding: 2px 0;
     font-family: monospace;
+    border-width: 0;
+}
+
+.value-picker__label--imprisonment {
+    font-size: 12px;
+    font-family: inherit;
+    border-width: 0;
 }
 
 .value-picker__input {
     color: #eeeeee;
+    font-size: 15px;
     text-align: center;
     font-weight: bold;
     font-family: monospace;
-    padding: 2px;
+    padding: 1px 2px 2px 0;
     width: 2.5em;
     background-color: inherit;
-    border-width: 1px;
+    border-width: 0;
 }
 
 
