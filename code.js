@@ -41,7 +41,6 @@
 	let calculatedPretenders
 	let imprisonment
 
-
 	const setImprisonment = () => {
 	    if (awakeInput.checked) {
 		imprisonment = parseInt(awakeInput.value)
@@ -68,7 +67,6 @@
 		    map.delete(pretender_id)
 		}
 	    })
-
 	}
 
 	filterPretenders()
@@ -112,7 +110,6 @@
 	buildNationSelect()
 
 	const makeTests = () => {
-
 	    deb.log("*** TESTS magicPathCost")
 	    deb.log( test( magicPathCost, [40, 2, 3], 8  ) )
 	    deb.log( test( magicPathCost, [40, 2, 1], 0  ) )
@@ -123,7 +120,6 @@
 	    deb.log( test( magicPathCost, [40, "2", 3], 8 ) )
 	    deb.log( test( magicPathCost, [40, undefined, 3], 80 ) )
 	    deb.log( test( magicPathCost, [40, null, 3], 80 ) )
-
 	    deb.log("*** TESTS magicCosts")
 	    deb.log( test( magicCost,
 			   [
@@ -142,7 +138,6 @@
 			 )
 		   )
 	    deb.log("*** TESTS maxDominionCost")
-
 	    deb.log( test( maxDominionCost,
 			   [4, 8],
 			   70
@@ -154,7 +149,6 @@
 			 )
 		   )
 	}
-
 
 	const magicPathCost = (newPathCost, baseLevel, wantedLevel) => {
 	    if (baseLevel == null || baseLevel == undefined || baseLevel == "") {
@@ -184,7 +178,6 @@
 	    }
 	    return cost
 	}
-
 
 	const magicCost = (pretender, wantedLevels) => {
 	    let cost = 0
@@ -289,14 +282,17 @@
 
 	const printPretenders = () => {
 	    cleanTable()
+	    let pathNames = {"F": "fire", "A": "air", "W": "water", "E": "earth", "S": "astral", "D": "death", "N": "nature", "B": "blood"}
 	    const printMagic = (calculated, path) => {
 		const level = calculated["current" + path]
+		const td = generateElement("td", {class: "pretenders-table__cell pretenders-table__cell--magic pretenders-table__cell--"+pathNames[path]})
 		if (level > 0) {
-		    return (path + level)
+		    td.appendChild(generateElement("span", {textNode: path+calculated["current"+path], class: "pretenders-table__text pretenders-table__text--magic pretenders-table__text--" + pathNames[path]}))
 		}
 		else {
-		    return("")
+		    td.appendChild(generateElement("span", {class: "pretenders-table__text pretenders-table__text--magic"}))
 		}
+		return td
 	    }
 	    const fragment =  document.createDocumentFragment()
 	    const printPretender = (calculated) => {
@@ -306,14 +302,14 @@
 		row.appendChild(generateElement("td", {textNode: calculated.pointsLeft, class: "pretenders-table__cell"}))
 		row.appendChild(generateElement("td", {textNode: calculated.currentDominion, class: "pretenders-table__cell"}))
 		
-		row.appendChild(generateElement("td", {class: "pretenders-table__cell pretenders-table__cell--magic pretenders-table__cell--fire"})).appendChild(generateElement("span", {textNode: printMagic(calculated, "F"), class: "pretenders-table__text pretenders-table__text--magic pretenders-table__text--fire"}))
-		row.appendChild(generateElement("td", {class: "pretenders-table__cell pretenders-table__cell--magic pretenders-table__cell--air"})).appendChild(generateElement("span", {textNode: printMagic(calculated, "A"), class: "pretenders-table__text pretenders-table__text--magic pretenders-table__text--air"}))
-		row.appendChild(generateElement("td", {class: "pretenders-table__cell pretenders-table__cell--magic pretenders-table__cell--water"})).appendChild(generateElement("span", {textNode: printMagic(calculated, "W"), class: "pretenders-table__text pretenders-table__text--magic pretenders-table__text--water"}))
-		row.appendChild(generateElement("td", {class: "pretenders-table__cell pretenders-table__cell--magic pretenders-table__cell--earth"})).appendChild(generateElement("span", {textNode: printMagic(calculated, "E"), class: "pretenders-table__text pretenders-table__text--magic pretenders-table__text--earth"}))
-		row.appendChild(generateElement("td", {class: "pretenders-table__cell pretenders-table__cell--magic pretenders-table__cell--astral"})).appendChild(generateElement("span", {textNode: printMagic(calculated, "S"), class: "pretenders-table__text pretenders-table__text--magic pretenders-table__text--astral"}))
-		row.appendChild(generateElement("td", {class: "pretenders-table__cell pretenders-table__cell--magic pretenders-table__cell--death"})).appendChild(generateElement("span", {textNode: printMagic(calculated, "D"), class: "pretenders-table__text pretenders-table__text--magic pretenders-table__text--death"}))
-		row.appendChild(generateElement("td", {class: "pretenders-table__cell pretenders-table__cell--magic pretenders-table__cell--nature"})).appendChild(generateElement("span", {textNode: printMagic(calculated, "N"), class: "pretenders-table__text pretenders-table__text--magic pretenders-table__text--nature"}))
-		row.appendChild(generateElement("td", {class: "pretenders-table__cell pretenders-table__cell--magic pretenders-table__cell--blood"})).appendChild(generateElement("span", {textNode: printMagic(calculated, "B"), class: "pretenders-table__text pretenders-table__text--magic pretenders-table__text--blood"}))
+		row.appendChild(printMagic(calculated, "F"))
+		row.appendChild(printMagic(calculated, "A"))
+		row.appendChild(printMagic(calculated, "W"))
+		row.appendChild(printMagic(calculated, "E"))
+		row.appendChild(printMagic(calculated, "S"))
+		row.appendChild(printMagic(calculated, "D"))
+		row.appendChild(printMagic(calculated, "N"))
+		row.appendChild(printMagic(calculated, "B"))
 		fragment.appendChild(row)
 	    }
 	    calculatedPretenders.forEach((calculated) => {printPretender(calculated)})
@@ -328,7 +324,6 @@
 	}
 
 	update()
-
 
 //	makeTests()
 	

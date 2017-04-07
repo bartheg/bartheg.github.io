@@ -153,7 +153,7 @@ const setupVanillaPretenders = () => {
 	"2447": {"name": "Idol of Men", "pointcost": 160, "pathcost": 40, "startdom": 4, "F": 1, "A": 1, "N": 1, "realm1": 1,   },    
 	"2448": {"name": "Idol of Beasts", "pointcost": 160, "pathcost": 40, "startdom": 4, "A": 1, "N": 2, "realm1": 1,   },    
 	"2449": {"name": "Idol of Sorcery", "pointcost": 160, "pathcost": 40, "startdom": 4, "S": 2, "D": 1, "realm1": 1,   },    
-	"2450": {"name": "Horned One", "pointcost": 240, "pathcost": 60, "startdom": 3, "N": 3, "realm1": 2,   },    
+	"2450": {"name": "Horned One", "pointcost": 250, "pathcost": 60, "startdom": 3, "N": 3, "realm1": 2,   },    
 	"2457": {"name": "Bodhisattva of Mercy", "pointcost": 250, "pathcost": 80, "startdom": 2, "A": 2, "S": 1, "realm1": 4,   },    
 	"2460": {"name": "Statue of Fertility", "pointcost": 170, "pathcost": 40, "startdom": 4, "E": 1, "N": 2, "realm1": 3,   },    
 	"2461": {"name": "Statue of the Bloody Mother", "pointcost": 160, "pathcost": 40, "startdom": 4, "N": 1, "B": 2, "realm1": 6,   },    

@@ -106,39 +106,79 @@ body {
 .form__body {
     color: #eeeeee;
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
     justify-content: center;
     padding: 3px;
+}
+
+.form__section {
+    display: flex;
+    flex-flow: row nowrap;
 }
 
 .form__body--imprisonment {
     flex-direction: column;
 }
 
-
 .value-picker {
-    display: inline-block;
-    margin: 2px 5px;
-    border-style: solid;
-    border-color: #cccccc;
-    border-width: 1px;
-    border-left-style: none;
-    border-top-style: none;
-
-}
-
-.value-picker--dominion {
-    margin-right: 20px;    
-}
-
-.value-picker--imprisonment {
-    border-width: 0;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    margin: 2px 2px;
 }
 
 .value-picker__label {
     font-size: 12px;
-    padding: 2px 0;
-    font-family: monospace;
+    padding: 2px 6px;
+    font-family: monospace;;
+    display: block;
+}
+
+.value-picker__label--magic {
+    padding: 2px 8px;
+}
+
+.value-picker__label--dominion {
+    background-color: #ffffee;
+    color: #111111;
+}
+
+.value-picker__label--fire {
+    background-color: #b03523;    
+}
+.value-picker__label--air {
+    background-color: #a38e96;
+}
+.value-picker__label--water {
+    background-color: #331d98;
+}
+.value-picker__label--earth {
+    background-color: #b08130;
+}
+.value-picker__label--astral {
+    background-color: #709b96;
+}
+.value-picker__label--death {
+    background-color: #701b63;
+}
+.value-picker__label--nature {
+    background-color: #3d7523;
+}
+.value-picker__label--blood {
+    background-color: #7d1b16;
+}
+
+
+.value-picker--dominion {
+    margin-right: 15px;    
+}
+
+.value-picker__label--scale {
+    font-size: 10px;
+    padding: 2px;
+}
+
+.value-picker--imprisonment {
     border-width: 0;
 }
 
@@ -150,16 +190,26 @@ body {
 
 .value-picker__input {
     color: #eeeeee;
-    font-size: 15px;
-    text-align: center;
+    font-size: 15px;/
     font-weight: bold;
     font-family: monospace;
-    padding: 1px 2px 2px 0;
     width: 2.5em;
     background-color: inherit;
     border-width: 0;
+    text-align: center;
 }
 
+.value-picker__input--magic {
+    padding: 0 4px;
+}
+
+.value-picker__input--scale {
+    padding: 0;
+    width: 2em;
+    margin: 0;
+}
+.value-picker__input--dominion {
+}
 
 #debugger {
     font-family: monospace;
@@ -180,7 +230,7 @@ body {
 }
 
 .pretenders-table__cell {
-    padding: 2px;
+    padding: 1px;
     text-align: center;
     background: linear-gradient(#3f4142, #3d3940);
 }
@@ -193,7 +243,7 @@ body {
     color: #000000;
     font-weight: bold;
     font-family: monospace;
-    padding: 2px;
+    padding: 0;
 }
 .pretenders-table__text--fire {
     background-color: #b03523;
