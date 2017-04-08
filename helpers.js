@@ -4,9 +4,7 @@ const generateElement = (tagName, attributes={}) => {
     let keys = Object.keys(attributes)
     keys.forEach( item => {
       if (item != "textNode") {
-        let attr = document.createAttribute(item)
-        attr.value = attributes[item]
-        element.setAttributeNode(attr)
+          element.setAttribute(item, attributes[item])
       }
     })
       if (attributes.textNode != undefined) {

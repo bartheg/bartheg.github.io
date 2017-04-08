@@ -261,7 +261,7 @@
 		result.pointsLeft = 500 - result.domCost - result.magicCost + discount - pretender.pointcost -
 		    (parseInt(orderInput.value) + parseInt(productivityInput.value) +
 		     parseInt(growthInput.value) +
-		     parseInt(fortuneInput.value) + parseInt(magicInput.value)) * 40 + imprisonment +
+		     parseInt(fortuneInput.value) + parseInt(magicInput.value)) * 40 +
 		    temperatureCost(baseTemperature, heatInput.value)
 		return result
 	    }
@@ -282,7 +282,9 @@
 
 	const printPretenders = () => {
 	    cleanTable()
+	    
 	    let pathNames = {"F": "fire", "A": "air", "W": "water", "E": "earth", "S": "astral", "D": "death", "N": "nature", "B": "blood"}
+
 	    const printMagic = (calculated, path) => {
 		const level = calculated["current" + path]
 		const td = generateElement("td", {class: "pretenders-table__cell pretenders-table__cell--magic pretenders-table__cell--"+pathNames[path]})
@@ -294,12 +296,14 @@
 		}
 		return td
 	    }
+	    
 	    const fragment =  document.createDocumentFragment()
+
 	    const printPretender = (calculated) => {
 
 		const row = generateElement("tr", {class: "pretenders-table__row"})
 		row.appendChild(generateElement("td", {textNode: vanillaPretenders.get(calculated.id.toString())["name"], class: "pretenders-table__cell pretenders-table__cell--name"}))
-		row.appendChild(generateElement("td", {textNode: calculated.pointsLeft, class: "pretenders-table__cell"}))
+		row.appendChild(generateElement("td", {textNode: calculated.pointsLeft + imprisonment, class: "pretenders-table__cell"}))
 		row.appendChild(generateElement("td", {textNode: calculated.currentDominion, class: "pretenders-table__cell"}))
 		
 		row.appendChild(printMagic(calculated, "F"))
@@ -322,32 +326,60 @@
 	    calculatePretenders()
 	    printPretenders()
 	}
+	
+	const nationUpdate = () => {
+	    setCurrentPretenders()
+	    calculatePretenders()
+	    printPretenders()
+	}
+
+	const magicUpdate = () => {
+	    calculatePretenders()
+	    printPretenders()
+	}
+
+	const heatUpdate = () => {
+	    calculatePretenders()
+	    printPretenders()
+	}
+
+	const scalesUpdate = () => {
+	    calculatePretenders()
+	    printPretenders()
+	}
+
+	const imprisonmentUpdate = () => {
+	    setImprisonment()
+	    printPretenders()
+	}
 
 	update()
 
 //	makeTests()
 	
-	nationPicker.addEventListener('change', update)	
-	dominionInput.addEventListener('change', update)	
-	fireInput.addEventListener('change', update)
-	airInput.addEventListener('change', update)
-	waterInput.addEventListener('change', update)
-	earthInput.addEventListener('change', update)
-	astralInput.addEventListener('change', update)
-	deathInput.addEventListener('change', update)
-	natureInput.addEventListener('change', update)
-	bloodInput.addEventListener('change', update)
+	nationPicker.addEventListener('change', nationUpdate)
+	
+	dominionInput.addEventListener('change', magicUpdate)	
+	fireInput.addEventListener('change', magicUpdate)
+	airInput.addEventListener('change', magicUpdate)
+	waterInput.addEventListener('change', magicUpdate)
+	earthInput.addEventListener('change', magicUpdate)
+	astralInput.addEventListener('change', magicUpdate)
+	deathInput.addEventListener('change', magicUpdate)
+	natureInput.addEventListener('change', magicUpdate)
+	bloodInput.addEventListener('change', magicUpdate)
 
-	orderInput.addEventListener('change', update)
-	productivityInput.addEventListener('change', update)
-	heatInput.addEventListener('change', update)
-	growthInput.addEventListener('change', update)
-	fortuneInput.addEventListener('change', update)
-	magicInput.addEventListener('change', update)
+	heatInput.addEventListener('change', heatUpdate)
 
-	awakeInput.addEventListener('change', update)
-	dormantInput.addEventListener('change', update)
-	imprisonedInput.addEventListener('change', update)
+	orderInput.addEventListener('change', scalesUpdate)
+	productivityInput.addEventListener('change', scalesUpdate)
+	growthInput.addEventListener('change', scalesUpdate)
+	fortuneInput.addEventListener('change', scalesUpdate)
+	magicInput.addEventListener('change', scalesUpdate)
+
+	awakeInput.addEventListener('change', imprisonmentUpdate)
+	dormantInput.addEventListener('change', imprisonmentUpdate)
+	imprisonedInput.addEventListener('change', imprisonmentUpdate)
 
 	
     }
