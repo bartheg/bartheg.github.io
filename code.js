@@ -31,27 +31,59 @@
 	
 	dominionInput.value = 1
 	
+	dormantInput.parentNode.style.cursor = 'pointer'
+	imprisonedInput.parentNode.style.cursor = 'pointer'
+	
 	// MAPS
 	const vanillaPretenders = setupVanillaPretenders()
 	const vanillaNations = setupVanillaNations()
 	const np = setupNationsPretenders(vanillaNations, vanillaPretenders)
 
+	// TEMPLATE
+	const tableRow = generateElement("tr",  {class: "pretenders-table__row"})
+	tableRow.appendChild(generateElement("td", {class: "pretenders-table__cell pretenders-table__cell--name"}))
+	tableRow.appendChild(generateElement("td", {class: "pretenders-table__cell pretenders-table__cell--left"}))
+	tableRow.appendChild(generateElement("td", {class: "pretenders-table__cell pretenders-table__cell--dominion"}))
+	tableRow.appendChild(generateElement("td", {class: "pretenders-table__cell"}))
+	tableRow.appendChild(generateElement("td", {class: "pretenders-table__cell"}))
+	tableRow.appendChild(generateElement("td", {class: "pretenders-table__cell"}))
+	tableRow.appendChild(generateElement("td", {class: "pretenders-table__cell"}))
+	tableRow.appendChild(generateElement("td", {class: "pretenders-table__cell"}))
+	tableRow.appendChild(generateElement("td", {class: "pretenders-table__cell"}))
+	tableRow.appendChild(generateElement("td", {class: "pretenders-table__cell"}))
+	tableRow.appendChild(generateElement("td", {class: "pretenders-table__cell"}))
+
+	
 	// GLOBAL VARIABLE
 	let currentPretendersIds 
 	let calculatedPretenders
 	let imprisonment
 
 	const setImprisonment = () => {
+
 	    if (awakeInput.checked) {
 		imprisonment = parseInt(awakeInput.value)
+		awakeInput.parentNode.style.cursor = 'default'
+		dormantInput.parentNode.style.cursor = 'pointer'
+		imprisonedInput.parentNode.style.cursor = 'pointer'
+
 	    }
 	    else if (dormantInput.checked) {
 		imprisonment = parseInt(dormantInput.value)
+		awakeInput.parentNode.style.cursor = 'pointer'
+		dormantInput.parentNode.style.cursor = 'default'
+		imprisonedInput.parentNode.style.cursor = 'pointer'
+
 	    }
 	    else {
 		imprisonment = parseInt(imprisonedInput.value)
+		awakeInput.parentNode.style.cursor = 'pointer'
+		dormantInput.parentNode.style.cursor = 'pointer'
+		imprisonedInput.parentNode.style.cursor = 'default'
 	    }
 	}
+
+	setImprisonment()
 	
 	const filterPretenders = () => {
 	    let allPrets = []
@@ -85,6 +117,7 @@
 		pretendersTableBody.removeChild(pretendersTableBody.lastChild)
 	    }
 	}
+
 	
 	const buildNationSelect = () => {
 	    const fragmentEA = document.createDocumentFragment()
@@ -280,6 +313,17 @@
 	    calculatedPretenders.sort(comparePointsLeft)
 	}
 
+
+	const updateImprisonmentPointsView = () => {
+	    const howMany = calculatedPretenders.length
+	    const rows = pretendersTableBody.childNodes
+	    for (let i = 0; i < howMany; i++) {
+		rows[i].childNodes[1].textContent = calculatedPretenders[i].pointsLeft + imprisonment
+
+	    }
+
+	}
+	
 	const printPretenders = () => {
 	    cleanTable()
 	    
@@ -300,20 +344,46 @@
 	    const fragment =  document.createDocumentFragment()
 
 	    const printPretender = (calculated) => {
+		const row = tableRow.cloneNode(true)
+		const cells = row.childNodes
+   
+		cells[0].textContent = vanillaPretenders.get(calculated.id.toString())["name"]
+		cells[1].textContent = calculated.pointsLeft + imprisonment
+		cells[2].textContent = calculated.currentDominion
 
-		const row = generateElement("tr", {class: "pretenders-table__row"})
-		row.appendChild(generateElement("td", {textNode: vanillaPretenders.get(calculated.id.toString())["name"], class: "pretenders-table__cell pretenders-table__cell--name"}))
-		row.appendChild(generateElement("td", {textNode: calculated.pointsLeft + imprisonment, class: "pretenders-table__cell"}))
-		row.appendChild(generateElement("td", {textNode: calculated.currentDominion, class: "pretenders-table__cell"}))
-		
-		row.appendChild(printMagic(calculated, "F"))
-		row.appendChild(printMagic(calculated, "A"))
-		row.appendChild(printMagic(calculated, "W"))
-		row.appendChild(printMagic(calculated, "E"))
-		row.appendChild(printMagic(calculated, "S"))
-		row.appendChild(printMagic(calculated, "D"))
-		row.appendChild(printMagic(calculated, "N"))
-		row.appendChild(printMagic(calculated, "B"))
+		if (calculated.currentF > 0) {
+		    cells[3].textContent = calculated.currentF
+		    cells[3].classList.add("pretenders-table__cell--fire")
+		}
+		if (calculated.currentA > 0) {
+		    cells[4].textContent = calculated.currentA
+		    cells[4].classList.add("pretenders-table__cell--air")
+		}
+		if (calculated.currentW > 0) {
+		    cells[5].textContent = calculated.currentW
+		    cells[5].classList.add("pretenders-table__cell--water")
+		}
+		if (calculated.currentE > 0) {
+		    cells[6].textContent = calculated.currentE
+		    cells[6].classList.add("pretenders-table__cell--earth")
+		}
+		if (calculated.currentS > 0) {
+		    cells[7].textContent = calculated.currentS
+		    cells[7].classList.add("pretenders-table__cell--astral")
+		}
+		if (calculated.currentD > 0) {
+		    cells[8].textContent = calculated.currentD
+		    cells[8].classList.add("pretenders-table__cell--death")
+		}
+		if (calculated.currentN > 0) {
+		    cells[9].textContent = calculated.currentN
+		    cells[9].classList.add("pretenders-table__cell--nature")
+		}
+		if (calculated.currentB > 0) {
+		    cells[10].textContent = calculated.currentB
+		    cells[10].classList.add("pretenders-table__cell--blood")
+		}
+
 		fragment.appendChild(row)
 	    }
 	    calculatedPretenders.forEach((calculated) => {printPretender(calculated)})
@@ -348,9 +418,9 @@
 	    printPretenders()
 	}
 
-	const imprisonmentUpdate = () => {
+	const imprisonmentUpdate = (event) => {
 	    setImprisonment()
-	    printPretenders()
+	    updateImprisonmentPointsView()
 	}
 
 	update()

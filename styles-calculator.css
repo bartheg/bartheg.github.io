@@ -174,7 +174,6 @@ body {
     background-color: #7d1b16;
 }
 
-
 .value-picker--dominion {
     margin-right: 12px;
  
@@ -187,18 +186,28 @@ body {
 
 .value-picker--imprisonment {
     border-width: 0;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding: 0;
 }
 
 .value-picker__label--imprisonment {
     font-size: 12px;
     font-family: inherit;
     border-width: 0;
+    cursor: inherit;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 0;
 }
 
 .value-picker__input {
     color: #eeeeee;
-    font-size: 15px;/
-    font-weight: bold;
+    font-size: 15px;
+    font-weight: normal;
     font-family: monospace;
     width: 2.5em;
     background-color: inherit;
@@ -216,6 +225,19 @@ body {
     margin: 0;
 }
 .value-picker__input--dominion {
+    
+}
+
+.value-picker__input--imprisonment {
+    cursor: inherit;
+    margin-right: 0;
+    padding-right: 0;
+    width: 20px;
+}
+
+.value-picker__input--imprisonment:focus {
+    cursor: inherit;
+    border-width: 0;
 }
 
 #debugger {
@@ -253,30 +275,63 @@ body {
     font-family: monospace;
     padding: 0 1px;
 }
-.pretenders-table__text--fire {
+
+.pretenders-table__cell--fire {
+    background-image: none;
     background-color: #b03523;
 }
-.pretenders-table__text--air {
-    background-color: #a38e96;
-        color: #f6f6f6;
+.pretenders-table__cell--fire::before {
+  content: 'F'; 
 }
-.pretenders-table__text--water {
+.pretenders-table__cell--air {
+    background-image: none;
+    background-color: #a38e96;
+    color: #f6f6f6;
+}
+.pretenders-table__cell--air::before {
+    content: 'A'; 
+}
+.pretenders-table__cell--water {
+    background-image: none;
     background-color: #331d98;
 }
-.pretenders-table__text--earth {
+.pretenders-table__cell--water::before {
+    content: 'W'; 
+}
+.pretenders-table__cell--earth {
+    background-image: none;
     background-color: #b08130;
-        color: #f6f6f6;
+    color: #f6f6f6;
 }
-.pretenders-table__text--astral {
+.pretenders-table__cell--earth::before {
+    content: 'E'; 
+}
+.pretenders-table__cell--astral {
+    background-image: none;
     background-color: #709b96;
-        color: #f6f6f6;
+    color: #f6f6f6;
 }
-.pretenders-table__text--death {
+.pretenders-table__cell--astral::before {
+    content: 'S'; 
+}
+.pretenders-table__cell--death {
+    background-image: none;
     background-color: #701b63;
 }
-.pretenders-table__text--nature {
+.pretenders-table__cell--death::before {
+    content: 'D'; 
+}
+.pretenders-table__cell--nature {
+    background-image: none;
     background-color: #3d7523;
 }
-.pretenders-table__text--blood {
+.pretenders-table__cell--nature::before {
+    content: 'N'; 
+}
+.pretenders-table__cell--blood {
+    background-image: none;
     background-color: #7d1b16;
+}
+.pretenders-table__cell--blood::before {
+    content: 'B'; 
 }
