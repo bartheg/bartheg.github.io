@@ -28,11 +28,64 @@
 	const awakeInput = document.getElementById("awake-picker__input")
 	const dormantInput = document.getElementById("dormant-picker__input")
 	const imprisonedInput = document.getElementById("imprisoned-picker__input")
+
+	const blessEffectsFire = document.getElementById("bless-effects-fire")
+	const blessEffectsAir = document.getElementById("bless-effects-air")
+	const blessEffectsWater = document.getElementById("bless-effects-water")
+	const blessEffectsEarth = document.getElementById("bless-effects-earth")
+	const blessEffectsAstral = document.getElementById("bless-effects-astral")
+	const blessEffectsDeath = document.getElementById("bless-effects-death")
+	const blessEffectsNature = document.getElementById("bless-effects-nature")
+	const blessEffectsBlood = document.getElementById("bless-effects-blood")
 	
+
+	fireInput.value = 0
+	airInput.value = 0
+	waterInput.value = 0
+	earthInput.value = 0
+	astralInput.value = 0
+	deathInput.value = 0
+	natureInput.value = 0
+	bloodInput.value = 0
+
 	dominionInput.value = 1
 	
 	dormantInput.parentNode.style.cursor = 'pointer'
 	imprisonedInput.parentNode.style.cursor = 'pointer'
+
+
+	// BLESS EFFECT
+	const makeEffect = (minorEffectName, startBonus, nPerLevel, majorEffectName, inputObject) => {
+	    return () => {
+		let level = inputObject.value
+		if (level >= 4) {
+		    let bonus = startBonus + parseInt((level - 4) * nPerLevel)
+		    let major = ""
+		    let secondEffect = ""
+		    if (inputObject == airInput) {
+			secondEffect = ", Missle range +" + (20 + parseInt(level - 4) * 5) + "%"
+		    }
+		    if (level >= 9) {
+			major = ", " + majorEffectName
+		    }
+		    return (minorEffectName + " +" + bonus + secondEffect  + major)
+		}
+		
+		else {
+		    return ""
+		}
+		
+	    }
+	}
+	const fireBlessEffect = makeEffect("Attack Skill", 2, 0.5, "Flaming weapons", fireInput)
+	const airBlessEffect = makeEffect("Precision", 2, 0.5, "Air Shield (80)", airInput)
+	const waterBlessEffect = makeEffect("Defence Skill", 2, 0.5, "Quickness", waterInput)
+	const earthBlessEffect = makeEffect("Reinvigoration", 2, 0.5, "Protection (+5)", earthInput)
+	const astralBlessEffect = makeEffect("Magic Resistance", 1, 0.5, "Twist Fate", astralInput)
+	const deathBlessEffect = makeEffect("Undying", 5, 1, "Death weapons", deathInput)
+	const natureBlessEffect = makeEffect("HP", 3, 1, "Regeneration (10%)", natureInput)
+	const bloodBlessEffect = makeEffect("Strength", 2, 0.5, "Blood Venegeance", bloodInput)
+	
 	
 	// MAPS
 	const vanillaPretenders = setupVanillaPretenders()
@@ -375,7 +428,8 @@
 		    cells[8].textContent = calculated.currentD
 		    cells[8].classList.add("pretenders-table__cell--death")
 		}
-		if (calculated.currentN > 0) {
+		if
+		    (calculated.currentN > 0) {
 		    cells[9].textContent = calculated.currentN
 		    cells[9].classList.add("pretenders-table__cell--nature")
 		}
@@ -383,6 +437,7 @@
 		    cells[10].textContent = calculated.currentB
 		    cells[10].classList.add("pretenders-table__cell--blood")
 		}
+		1
 
 		fragment.appendChild(row)
 	    }
@@ -404,8 +459,74 @@
 	}
 
 	const magicUpdate = () => {
+
+	    blessEffectsFire.textContent = fireBlessEffect()
+	    if (fireInput.value >= 4) {
+		blessEffectsFire.classList.add("bless-effects--visible")
+	    }
+	    else {
+		blessEffectsFire.classList.remove("bless-effects--visible")
+	    }
+
+	    blessEffectsAir.textContent = airBlessEffect()
+	    if (airInput.value >= 4) {
+		blessEffectsAir.classList.add("bless-effects--visible")
+	    }
+	    else {
+		blessEffectsAir.classList.remove("bless-effects--visible")
+	    }
+
+	    blessEffectsWater.textContent = waterBlessEffect()
+	    if (waterInput.value >= 4) {
+		blessEffectsWater.classList.add("bless-effects--visible")
+	    }
+	    else {
+		blessEffectsWater.classList.remove("bless-effects--visible")
+	    }
+
+	    blessEffectsEarth.textContent = earthBlessEffect()
+	    if (earthInput.value >= 4) {
+		blessEffectsEarth.classList.add("bless-effects--visible")
+	    }
+	    else {
+		blessEffectsEarth.classList.remove("bless-effects--visible")
+	    }
+
+	    blessEffectsAstral.textContent = astralBlessEffect()
+	    if (astralInput.value >= 4) {
+		blessEffectsAstral.classList.add("bless-effects--visible")
+	    }
+	    else {
+		blessEffectsAstral.classList.remove("bless-effects--visible")
+	    }
+
+	    blessEffectsDeath.textContent = deathBlessEffect()
+	    if (deathInput.value >= 4) {
+		blessEffectsDeath.classList.add("bless-effects--visible")
+	    }
+	    else {
+		blessEffectsDeath.classList.remove("bless-effects--visible")
+	    }
+
+	    blessEffectsNature.textContent = natureBlessEffect()
+	    if (natureInput.value >= 4) {
+		blessEffectsNature.classList.add("bless-effects--visible")
+	    }
+	    else {
+		blessEffectsNature.classList.remove("bless-effects--visible")
+	    }
+
+	    blessEffectsBlood.textContent = bloodBlessEffect()
+	    if (bloodInput.value >= 4) {
+		blessEffectsBlood.classList.add("bless-effects--visible")
+	    }
+	    else {
+		blessEffectsBlood.classList.remove("bless-effects--visible")
+	    }
+
 	    calculatePretenders()
 	    printPretenders()
+	    
 	}
 
 	const heatUpdate = () => {
