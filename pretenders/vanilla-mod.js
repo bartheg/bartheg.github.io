@@ -559,7 +559,7 @@ const setupVanillaNations = () => {
 	       "cheapgods20": [294, 2849],
 	       "cheapgods40": []},
 	"91": {"name": "Atlantis","epithet": "Frozen Sea","abbreviation": "Atl","file_name_base": "late_atlantis","era": 3,
-	       "realms": [9],
+	       "realms": [10],
 	       "cheapgods20": [265, 2852, 2853],
 	       "cheapgods40": [], "idealcold": 2},
 	"92": {"name": "R'lyeh","epithet": "Dreamlands","abbreviation": "Rl","file_name_base": "late_rlyeh","era": 3,
