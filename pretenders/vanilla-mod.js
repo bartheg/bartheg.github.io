@@ -251,7 +251,7 @@ const setupVanillaNations = () => {
 	      "cheapgods20": [874, 1343, 2463, 2850],
 	      "cheapgods40": []},
 	"7": {"name": "Ulm","epithet": "Enigma of Steel","abbreviation": "Ul","file_name_base": "early_ulm","era": 1,
-	      "realms": [1],
+	      "realms": [1, 2],
 	      "cheapgods20": [266, 606, 1230, 1340, 2234],
 	      "cheapgods40": [], "idealcold": 1},
 	"8": {"name": "Marverni","epithet": "Time of Druids","abbreviation": "Mav","file_name_base": "early_marverni","era": 1,
@@ -291,7 +291,7 @@ const setupVanillaNations = () => {
 	       "cheapgods20": [138, 812, 978, 979, 1343, 2783],
 	       "cheapgods40": []},
 	"17": {"name": "Agartha","epithet": "Pale Ones","abbreviation": "Ag","file_name_base": "early_agartha","era": 1,
-	       "realms": [5],
+	       "realms": [10],
 	       "cheapgods20": [1590, 2502, 2503, 2791],
 	       "cheapgods40": []},
 	"18": {"name": "Tir na n'Og","epithet": "Land of the Ever Young","abbreviation": "Tir","file_name_base": "early_tirnanog","era": 1,
@@ -367,11 +367,11 @@ const setupVanillaNations = () => {
 	       "cheapgods20": [266],
 	       "cheapgods40": []},
 	"39": {"name": "Ulm","epithet": "Forges of Ulm","abbreviation": "Ul","file_name_base": "mid_ulm","era": 2,
-	       "realms": [1],
+	       "realms": [1, 2],
 	       "cheapgods20": [550, 1230, 1340],
 	       "cheapgods40": []},
 	"40": {"name": "Marignon","epithet": "Fiery Justice","abbreviation": "Mar","file_name_base": "mid_marignon","era": 2,
-	       "realms": [3],
+	       "realms": [2, 3],
 	       "cheapgods20": [215, 216],
 	       "cheapgods40": []},
 	"41": {"name": "Mictlan","epithet": "Reign of the Lawgiver","abbreviation": "Mi","file_name_base": "mid_mictlan","era": 2,
@@ -387,7 +387,7 @@ const setupVanillaNations = () => {
 	       "cheapgods20": [216, 957, 1025, 1346, 2207, 2792, 2793],
 	       "cheapgods40": [], "idealcold": -2},
 	"44": {"name": "Agartha","epithet": "Golem Cult","abbreviation": "Ag","file_name_base": "mid_agartha","era": 2,
-	       "realms": [5],
+	       "realms": [10],
 	       "cheapgods20": [1590, 2503, 2791],
 	       "cheapgods40": []},
 	"45": {"name": "Abysia","epithet": "Blood and Fire","abbreviation": "Aby","file_name_base": "mid_abysia","era": 2,
@@ -459,11 +459,11 @@ const setupVanillaNations = () => {
 	       "cheapgods20": [],
 	       "cheapgods40": []},
 	"64": {"name": "Ulm","epithet": "Black Forest","abbreviation": "BF","file_name_base": "late_ulm","era": 3,
-	       "realms": [1],
+	       "realms": [1, 2],
 	       "cheapgods20": [656, 862],
 	       "cheapgods40": []},
 	"65": {"name": "Marignon","epithet": "Conquerors of the Sea","abbreviation": "CoS","file_name_base": "late_marignon","era": 3,
-	       "realms": [3],
+	       "realms": [2, 3, 6],
 	       "cheapgods20": [215, 216, 607 ],
 	       "cheapgods40": []},
 	"66": {"name": "Mictlan","epithet": "Blood and Rain","abbreviation": "Mi","file_name_base": "late_mictlan","era": 3,
@@ -479,7 +479,7 @@ const setupVanillaNations = () => {
 	       "cheapgods20": [1339, 1345],
 	       "cheapgods40": []},
 	"70": {"name": "Agartha","epithet": "Ktonian Dead","abbreviation": "KD","file_name_base": "late_agartha","era": 3,
-	       "realms": [7],
+	       "realms": [10],
 	       "cheapgods20": [550, 1581, 2503],
 	       "cheapgods40": []},
 	"71": {"name": "Abysia","epithet": "Blood of Humans","abbreviation": "BoH","file_name_base": "late_abysia","era": 3,
@@ -596,7 +596,21 @@ const setupNationsPretenders = (nations, pretenders) => {
 	"nation_id":[7,7,7,9,9,10,10,10,12,12,13,13,13,13,14,14,15,16,16,17,17,20,20,20,21,21,21,22,22,22,22,22,22,22,26,27,27,27,27,27,30,30,31,31,31,34,34,34,34,34,34,34,34,34,34,34,35,35,39,39,39,39,40,40,40,40,40,40,40,40,41,41,42,42,42,44,44,45,45,45,45,46,46,47,48,48,49,49,49,50,50,51,51,51,51,51,51,51,52,52,54,54,54,54,54,57,58,58,58,58,62,62,62,62,62,62,62,64,64,64,65,65,65,65,65,65,65,65,66,66,67,67,67,69,69,69,70,70,71,71,71,71,72,72,73,74,75,75,76,76,76,76,76,76,76,77,80,80,81,81,81,81,83,83,83,84,84,85,86,87,88,88,89,90,91,91,91,92,92,95,96,96]
     }
 
+    // BUGGED inspector fixes
+    // delete Father of the sea from EA, MA, LA Ulm
+    vanilla_deleted_gods_data.monster_id.push(2848, 2848, 2848)
+    vanilla_deleted_gods_data.nation_id.push(7, 39, 64)
+    // delete Father of the sea from, MA, LA Man
+    vanilla_deleted_gods_data.monster_id.push(2848, 2848)
+    vanilla_deleted_gods_data.nation_id.push(37, 63)
+    // delete Father of the sea from EA Marverni, MA, LA Marignon
+    vanilla_deleted_gods_data.monster_id.push(2848, 2848, 2848)
+    vanilla_deleted_gods_data.nation_id.push(8, 40, 65)
+    // delete Father of the sea from Fomoria, TNN, Eriu
+    vanilla_deleted_gods_data.monster_id.push(2848, 2848, 2848)
+    vanilla_deleted_gods_data.nation_id.push(18, 19, 38)
 
+    
     let realmsPretenders = new Map()
     realmsPretenders.set("1", new Array())
     realmsPretenders.set("2", new Array())
@@ -607,6 +621,8 @@ const setupNationsPretenders = (nations, pretenders) => {
     realmsPretenders.set("7", new Array())
     realmsPretenders.set("8", new Array())
     realmsPretenders.set("9", new Array())
+    realmsPretenders.set("10", new Array())
+
     pretenders.forEach(
 	(pretender, pretender_id) => {
 	    let pretenderRealms = [pretender["realm1"], pretender["realm2"], pretender["realm3"]]
@@ -620,6 +636,7 @@ const setupNationsPretenders = (nations, pretenders) => {
 		    realmsPretenders.get("6").push(pretender_id)
 		    realmsPretenders.get("7").push(pretender_id)
 		    realmsPretenders.get("8").push(pretender_id)
+		    realmsPretenders.get("10").push(pretender_id)
 		}
 		else if ( realm == 1 || realm ==2 || realm == 3 || realm == 4 || realm == 5 || realm == 6 || realm == 7 || realm == 8 || realm == 9 ) {
 		    realmsPretenders.get(realm.toString()).push(pretender_id)
@@ -627,6 +644,7 @@ const setupNationsPretenders = (nations, pretenders) => {
 	    })
 	}
     )
+    
     realmsPretenders.forEach( (pretenders, realm) =>
 			      realmsPretenders.set(realm, pretenders.filter( (pret, ind, prets) => prets.indexOf(pret) === ind ))
 			    )
@@ -648,6 +666,18 @@ const setupNationsPretenders = (nations, pretenders) => {
 	}
     )
 
+    // I need delete duplicates here
+    nations.forEach(
+	(nation, nation_id) => {
+	    let pretendersToFilter = nationsPretenders.get(nation_id.toString())
+	    let filteredPretenders = pretendersToFilter.filter(function(elem, index, self) {
+		return index == self.indexOf(elem);
+	    })
+	    nationsPretenders.set( nation_id.toString(), filteredPretenders)
+	}
+    )
+   
+    
     vanilla_added_gods_data.monster_id.forEach( (monster_id, index) => {
 	if (nations.get(vanilla_added_gods_data.nation_id[index].toString())) {
 	    nationsPretenders.get(vanilla_added_gods_data.nation_id[index].toString()).push(monster_id.toString())

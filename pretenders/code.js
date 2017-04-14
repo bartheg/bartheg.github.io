@@ -5,6 +5,9 @@
 	deb.log = (...args) => {
 	    deb.insertBefore(generateElement("p", {class: "debug__log", textNode: args}), deb.firstChild)
 	}
+	deb.rep = (...args) => {
+	    deb.textContent = args
+	}
 	// DOM ELEMENTS
 	const nationPicker = document.getElementById("nation-picker__select")
 	const pretendersTableBody = document.getElementById("pretenders-table__body")
@@ -443,6 +446,7 @@
 	    }
 	    calculatedPretenders.forEach((calculated) => {printPretender(calculated)})
 	    pretendersTableBody.appendChild(fragment)
+	    deb.rep(calculatedPretenders.length, " <- number of pretenders")
 	}
 	
 	const update = () => {
